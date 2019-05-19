@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="LoginLblWelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="26.0" text="Bem vindo ao" textAlignment="CENTER" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="25.0" />
+      <ImageView fx:id="LoginImage" fitHeight="62.0" fitWidth="82.0" layoutX="159.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="50.0" />
+      <Label fx:id="LoginLblUsuario" layoutX="82.0" layoutY="75.0" text="Usuário:" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="50.0" />
+      <TextField fx:id="LoginTxtFieldUsuario" layoutX="35.0" layoutY="150.0" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <Label fx:id="LoginLblSenha" layoutX="35.0" layoutY="120.0" text="Senha:" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="50.0" />
+      <TextField fx:id="LoginTxtFieldSenha" layoutX="35.0" layoutY="205.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+   </children>
+</AnchorPane>

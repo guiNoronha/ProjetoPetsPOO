@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="DescPessoaAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="DescPessoaLblNome" layoutX="16.0" layoutY="38.0" text="Nome" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
+      <TextField fx:id="DescPessoaTxtFieldNome" layoutX="14.0" layoutY="55.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="55.0" />
+      <Label fx:id="DescPessoaLblCpf" layoutX="16.0" layoutY="93.0" text="CPF" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="DescPessoaTxtFieldCpf" layoutX="14.0" layoutY="117.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="110.0" />
+      <Label fx:id="DescPessoaLblTelefone" layoutX="252.0" layoutY="90.0" text="Telefone" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="DescPessoaTxtFieldTelefone" layoutX="248.0" layoutY="117.0" prefHeight="25.0" prefWidth="277.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="110.0" />
+      <Label fx:id="DescPessoaLblCep" layoutX="16.0" layoutY="215.0" text="CEP" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="145.0" />
+      <TextField fx:id="DescPessoaTxtFieldCep" layoutX="14.0" layoutY="239.0" prefHeight="25.0" prefWidth="256.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="269.0" AnchorPane.topAnchor="165.0" />
+      <Label fx:id="DescPessoaLblNumero" layoutX="300.0" layoutY="145.0" text="Número" AnchorPane.rightAnchor="206.0" />
+      <TextField fx:id="DescPessoaTxtFieldNumero" layoutX="256.0" layoutY="165.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="25.0" />
+      <Label fx:id="DescPessoaLblPets" layoutX="28.0" layoutY="201.0" text="Pets" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="200.0" />
+      <TableView fx:id="DescPessoaTabelaPets" layoutX="25.0" layoutY="218.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="220.0">
+        <columns>
+          <TableColumn fx:id="DescPessoaColunaPetsCodigo" prefWidth="75.0" text="Código" />
+          <TableColumn fx:id="DescPessoaColunaPetsEspecie" prefWidth="127.0" text="Espécie" />
+            <TableColumn fx:id="DescPessoaColunaPetsNome" prefWidth="297.0" text="Nome" />
+        </columns>
+      </TableView>
+      <Button fx:id="DescPessoaBtnCancelar" mnemonicParsing="false" prefWidth="75.0" text="Cancelar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="125.0" />
+      <Button fx:id="DescPessoaBtnSalvar" layoutX="523.0" layoutY="350.0" mnemonicParsing="false" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="25.0" />
+   </children>
+</AnchorPane>

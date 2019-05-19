@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="DescAnimalAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="DescAnimalLblNome" layoutX="16.0" layoutY="38.0" text="Nome" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
+      <TextField fx:id="DescAnimalTxtFieldNome" layoutX="14.0" layoutY="55.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="55.0" />
+      <Label fx:id="DescAnimalLblCodigo" layoutX="16.0" layoutY="93.0" text="Código" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="DescAnimalTxtFieldCodigo" layoutX="14.0" layoutY="117.0" prefHeight="25.0" prefWidth="159.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="110.0" />
+      <Label fx:id="DescAnimalLblEspecie" layoutX="205.0" layoutY="90.0" text="Espécie" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="DescAnimalTxtFieldEspecie" layoutX="205.0" layoutY="117.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="110.0" />
+      <Label fx:id="DescAnimalLblStatus" layoutX="16.0" layoutY="215.0" text="Status" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="145.0" />
+      <TextField fx:id="DescAnimalTxtFieldStatus" layoutX="14.0" layoutY="239.0" prefHeight="25.0" prefWidth="159.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="366.0" AnchorPane.topAnchor="165.0" />
+      <Label fx:id="DescAnimalLblRaca" layoutX="205.0" layoutY="145.0" text="Raça" AnchorPane.rightAnchor="320.0" />
+      <TextField fx:id="DescAnimalTxtFieldRaca" layoutX="205.0" layoutY="165.0" prefHeight="25.0" prefWidth="320.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="165.0" />
+      <Label fx:id="DescAnimalLblDescricao" layoutX="28.0" layoutY="201.0" text="Descrição" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="200.0" />
+      <TextArea fx:id="DescAnimalTxtAreaDescricao" layoutX="58.0" layoutY="233.0" prefHeight="90.0" prefWidth="500.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="220.0" />
+      <Label fx:id="DescAnimalLblDono" layoutX="37.0" layoutY="370.0" text="Dono" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="25.0" />
+      <TextField fx:id="DescAnimalTxtFieldDono" layoutX="30.0" layoutY="397.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <Button fx:id="DescAnimalBtnCancelar" mnemonicParsing="false" prefWidth="75.0" text="Cancelar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="125.0" />
+      <Button fx:id="DescAnimalBtnSalvar" layoutX="523.0" layoutY="350.0" mnemonicParsing="false" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="25.0" />
+   </children>
+</AnchorPane>
