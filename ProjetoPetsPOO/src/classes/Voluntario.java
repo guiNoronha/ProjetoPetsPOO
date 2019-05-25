@@ -9,7 +9,7 @@ public class Voluntario extends Pessoa {
 	public Integer voluntario_id;
 	private String voluntario_atuacao;
 	private String voluntario_area;
-	private Pessoa pessoa;
+
 
 	public Integer getVoluntarioId() {
 		return voluntario_id;
@@ -36,13 +36,7 @@ public class Voluntario extends Pessoa {
 		this.voluntario_area = voluntario_area;
 	}
 
-	public Pessoa getPessoa() {
-		return this.pessoa;
-	}
-	
-	public void setPessoa(Pessoa pes) {
-		this.pessoa = pes;
-	}
+
 }
 	
 	
