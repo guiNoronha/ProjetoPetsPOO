@@ -1,37 +1,48 @@
-package application;
+package classes;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
-public class Voluntario {
+public class Voluntario extends Pessoa {
 	
-	private Integer voluntario_id;
+	public Integer voluntario_id;
 	private String voluntario_atuacao;
 	private String voluntario_area;
-
+	private Pessoa pessoa;
 
 	public Integer getVoluntarioId() {
-		return voluntario_id.get();
+		return voluntario_id;
 	}
 	
 	public void setVoluntarioId(Integer voluntario_id) {
-		this.voluntario_id.set(voluntario_id);
+		this.voluntario_id = voluntario_id;
 	}
 
 
-	public Integer getAtuacao() {
-		return voluntario_atuacao.get();
+	public String getVoluntarioAtuacao() {
+		return voluntario_atuacao;
 	}
 	
-	public void setAtuacao(String voluntario_atuacao) {
-		this.voluntario_atuacao.set(voluntario_atuacao);
+	public void setVoluntarioAtuacao(String voluntario_atuacao) {
+		this.voluntario_atuacao = voluntario_atuacao;
 	}
 
-	public Integer getArea() {
-		return voluntario_area.get();
+	public String getVoluntarioArea() {
+		return voluntario_area;
 	}
 	
-	public void setArea(String voluntario_area) {
-		this.voluntario_area.set(voluntario_area);
+	public void setVoluntarioArea(String voluntario_area) {
+		this.voluntario_area = voluntario_area;
 	}
+
+	public Pessoa getPessoa() {
+		return this.pessoa;
+	}
+	
+	public void setPessoa(Pessoa pes) {
+		this.pessoa = pes;
+	}
+}
+	
+	

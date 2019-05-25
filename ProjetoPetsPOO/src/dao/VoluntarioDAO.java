@@ -1,4 +1,4 @@
-package application;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import classes .*;
 
 public class VoluntarioDAO {
   private Connection connection;
@@ -22,7 +23,7 @@ public class VoluntarioDAO {
 
       stmt.setString(1, v.getVoluntarioAtuacao());
       stmt.setString(2, v.getVoluntarioArea());
-      stmt.setInt(3, v.getPessoa().getPessoaId());
+      stmt.setInt(3, v.getPessoa().getPesId());
 
       stmt.execute();
 
@@ -40,7 +41,7 @@ public class VoluntarioDAO {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    return s;
+    return v;
   }
 
   public ArrayList<Voluntario> getLista() throws Exception {
@@ -98,7 +99,7 @@ public class VoluntarioDAO {
 
       stmt.setString(1, v.getVoluntarioAtuacao());
       stmt.setString(2, v.getVoluntarioArea());
-      stmt.setInt(3, v.getPessoa().getPessoaId());
+      stmt.setInt(3, v.getPessoa().getPesId());
       stmt.setInt(4, v.getVoluntarioId());
 
       stmt.execute();
