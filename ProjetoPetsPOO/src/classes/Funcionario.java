@@ -1,27 +1,25 @@
-package application;
+package classes;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
-public class Funcionario {
+public class Funcionario extends Pessoa {
 	
 	private Integer func_id;
 	private Float func_salario;
 
 	public Integer getFuncId() {
-		return func_id.get();
-	}
-	
+		return func_id;
+	}	
 	public void setFuncId(Integer func_id) {
-		this.func_id.set(func_id);
+		this.func_id= func_id;
 	}
 
-
-	public Integer getFuncSalario() {
-		return func_salario.get();
-	}
-	
+	public Float getFuncSalario() {
+		return func_salario;
+	}	
 	public void setFuncSalario(Float func_salario) {
-		this.func_salario.set(func_salario);
+		this.func_salario = func_salario;
 	}
+}
