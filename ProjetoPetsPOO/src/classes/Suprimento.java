@@ -15,6 +15,7 @@ public class Suprimento {
 
 	public Integer getSuprimentoId() {
 		return sup_id;
+//		sup_id
 	}
 	public void setSuprimentoId(Integer sup_id) {
 		this.sup_id = sup_id;

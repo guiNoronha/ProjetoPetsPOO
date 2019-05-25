@@ -13,7 +13,8 @@ public class SuprimentoDAO {
   private Connection connection;
 
   public SuprimentoDAO() throws Exception {
-    connection = new ConnectionFactory().getConnection();
+//	  connection 
+	  connection = new ConnectionFactory().getConnection();
   }
 
   public Suprimento inserir(Suprimento s) {
