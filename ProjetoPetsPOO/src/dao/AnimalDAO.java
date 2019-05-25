@@ -21,31 +21,31 @@ public class AnimalDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      java.sql.Date data_entrada = new java.sql.Date(a.getAnimalDataEntrada().getTime());
-      java.sql.Date data_saida = new java.sql.Date(a.getAnimalDataSaida().getTime());
+      java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
+      java.sql.Date data_saida = new java.sql.Date(a.getAniSaida().getTime());
 
-      stmt.setString(1, a.getAnimalNome());
+      stmt.setString(1, a.getAniNome());
       
-      if (a.getAnimalDataEntrada() != null) {
+      if (a.getAniEntrada() != null) {
         stmt.setDate(2, data_entrada);
       } else {
         stmt.setDate(2, null);
       }
 
-      if (a.getAnimalDataSaida() != null) {
+      if (a.getAniSaida() != null) {
         stmt.setDate(3, data_saida);
       } else {
         stmt.setDate(3, null);
       }
 
-      stmt.setStrin(4, a.getAnimalRaca());
-      stmt.setString(5, a.getAnimalTipo());
+      stmt.setString(4, a.getAniRaca());
+      stmt.setString(5, a.getAniTipo());
 
       stmt.execute();
 
       try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
         if (generatedKeys.next()) {
-          a.setAnimalId(generatedKeys.getInt(1));
+          a.setAniId(generatedKeys.getInt(1));
         } else {
           throw new SQLException("Creating animal failed, no ID obtained.");
         }
@@ -71,12 +71,12 @@ public class AnimalDAO {
       while (rs.next()) {
 
         Animal animal = new Animal();
-        animal.setAnimalId(rs.getInt("ani_id"));
-        animal.setAnimalNome(rs.getString("ani_nome"));
-        animal.setAnimalEntrada(rs.getDate("ani_entrada"));
-        animal.setAnimalSaida(rs.getDate("ani_saida"));
-        animal.setAnimalRaca(rs.getString("ani_raca"));
-        animal.setAnimalTipo(rs.getString("ani_tipo"));
+        animal.setAniId(rs.getInt("ani_id"));
+        animal.setAniNome(rs.getString("ani_nome"));
+        animal.setAniEntrada(rs.getDate("ani_entrada"));
+        animal.setAniSaida(rs.getDate("ani_saida"));
+        animal.setAniRaca(rs.getString("ani_raca"));
+        animal.setAniTipo(rs.getString("ani_tipo"));
 
         animais.add(animal);
       }
@@ -94,7 +94,7 @@ public class AnimalDAO {
     try {
       String sql = "DELETE FROM animal WHERE ani_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
-      stmt.setInt(1, a.getAnimalId());
+      stmt.setInt(1, a.getAniId());
       stmt.execute();
       stmt.close();
       System.out.println("Removido!");
@@ -109,26 +109,26 @@ public class AnimalDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      java.sql.Date data_entrada = new java.sql.Date(a.getAnimalDataEntrada().getTime());
-      java.sql.Date data_saida = new java.sql.Date(a.getAnimalDataSaida().getTime());
+      java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
+      java.sql.Date data_saida = new java.sql.Date(a.getAniSaida().getTime());
 
-      stmt.setString(1, a.getAnimalNome());
+      stmt.setString(1, a.getAniNome());
 
-      if (a.getAnimalDataEntrada() != null) {
+      if (a.getAniEntrada() != null) {
         stmt.setDate(2, data_entrada);
       } else {
         stmt.setDate(2, null);
       }
 
-      if (a.getAnimalDataSaida() != null) {
+      if (a.getAniSaida() != null) {
         stmt.setDate(3, data_saida);
       } else {
         stmt.setDate(3, null);
       }
 
-      stmt.setStrin(4, a.getAnimalRaca());
-      stmt.setString(5, a.getAnimalTipo());
-      stmt.setString(6, a.getAnimalId());
+      stmt.setString(4, a.getAniRaca());
+      stmt.setString(5, a.getAniTipo());
+      stmt.setInt(6, a.getAniId());
 
       stmt.execute();
       stmt.close();
@@ -151,12 +151,12 @@ public class AnimalDAO {
       Animal animal = new Animal();
 
       while (rs.next()) {
-        animal.setAnimalId(rs.getInt("ani_id"));
-        animal.setAnimalNome(rs.getString("ani_nome"));
-        animal.setAnimalEntrada(rs.getDate("ani_entrada"));
-        animal.setAnimalSaida(rs.getDate("ani_saida"));
-        animal.setAnimalRaca(rs.getString("ani_raca"));
-        animal.setAnimalTipo(rs.getString("ani_tipo"));
+        animal.setAniId(rs.getInt("ani_id"));
+        animal.setAniNome(rs.getString("ani_nome"));
+        animal.setAniEntrada(rs.getDate("ani_entrada"));
+        animal.setAniSaida(rs.getDate("ani_saida"));
+        animal.setAniRaca(rs.getString("ani_raca"));
+        animal.setAniTipo(rs.getString("ani_tipo"));
       }
 
       rs.close();

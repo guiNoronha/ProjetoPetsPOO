@@ -1,8 +1,6 @@
-package application;
+package classes;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
+import java.sql.Date;
 
 public class Animal {
 	
@@ -14,49 +12,43 @@ public class Animal {
   	private String ani_tipo;
 
 
-	public Integer getPesId() {
-		return ani_id.get();
+	public Integer getAniId() {
+		return ani_id;
 	}
 	
 	public void setAniId(Integer verId) {
-		this.ani_id.set(verId);
+		this.ani_id = verId;
 	}
 	
-	public ObservableValue<String> getAniNome() {
+	public String getAniNome() {
 		return ani_nome;
 	}
 	public void setAniNome(String ani_nome) {
-		this.ani_nome.set(ani_nome);
+		this.ani_nome = ani_nome;
 	}
-	public ObservableValue<Date> getAniEntrada() {
+	public Date getAniEntrada() {
 		return ani_entrada;
 	}
 	public void setAniEntrada(Date ani_entrada) {
-		this.ani_entrada.set(pesNomeCurto);
+		this.ani_entrada = ani_entrada;
 	}
-	public String getAniSaida() {
-		return ani_saida.get();
+	public Date getAniSaida() {
+		return ani_saida;
 	}
 	public void setAniSaida(Date ani_saida) {
-		this.ani_saida.set(ani_saida);
+		this.ani_saida = ani_saida;
 	}
 	public String getAniRaca() {
-		return ani_raca.get();
+		return ani_raca;
 	}
 	public void setAniRaca(String ani_raca) {
-		this.ani_raca.set(ani_raca);
+		this.ani_raca = ani_raca;
 	}
-	public Integer getAniTipo() {
-		return ani_tipo.get();
+	public String getAniTipo() {
+		return ani_tipo;
 	}
 	
 	public void setAniTipo(String ani_tipo) {
-		this.ani_tipo.set(ani_tipo);
-	}
-	
-	@Override
-	public String toString() {
-		return this.getAniNome().getValue();
-		
+		this.ani_tipo = ani_tipo;
 	}
 }
