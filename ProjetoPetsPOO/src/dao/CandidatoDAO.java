@@ -1,5 +1,6 @@
-package application;
+package dao;
 
+import classes.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,14 +21,14 @@ public class CandidatoDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setInt(1, c.getCandidatoValido());
-      stmt.setInt(2, c.getPessoa().getPessoaId());
+      stmt.setBoolean(1, c.getCandValido());
+      stmt.setInt(2, c.getPesId());
 
       stmt.execute();
 
       try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
         if (generatedKeys.next()) {
-          c.setCandidatoId(generatedKeys.getInt(1));
+          c.setCandId(generatedKeys.getInt(1));
         } else {
           throw new SQLException("Creating candidate failed, no ID obtained.");
         }
@@ -39,12 +40,12 @@ public class CandidatoDAO {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    return s;
+    return c;
   }
 
   public ArrayList<Candidato> getLista() throws Exception {
     try {
-      String sql = "SELECT * FROM candidato";
+      String sql = "SELECT * FROM candidato join pessoa on pessoa.pes_id = candidato.pes_id";
       PreparedStatement stmt = connection.prepareStatement(sql);
       ResultSet rs = stmt.executeQuery();
 
@@ -54,15 +55,14 @@ public class CandidatoDAO {
 
         Candidato candidato = new Candidato();
 
-        candidato.setCandidatoId(rs.getString("cand_vid"));
-        candidato.setCandidatoValido(rs.getString("cand_valido"));
-
-        Pessoa pes = new Pessoa();
-        PessoaDAO pDAO = new PessoaDAO();
-        pes = pDAO.buscar(rs.getInt("pes_id"));
-
-        candidato.setPessoa(pes);
-
+        candidato.setCandId(rs.getInt("cand_id"));
+        candidato.setCandValido(rs.getBoolean("cand_valido"));
+        candidato.setPesId(rs.getInt("pes_id"));
+        candidato.setPesNome(rs.getString("pes_nome"));
+        candidato.setPesEndereco(rs.getString("pes_endereco"));
+        candidato.setPesTelefone(rs.getString("pes_telefone"));
+        candidato.setPesCpf(rs.getString("pes_cpf"));
+        candidato.setPesEmail(rs.getString("pes_email"));
         candidatos.add(candidato);
       }
 
@@ -79,7 +79,7 @@ public class CandidatoDAO {
     try {
       String sql = "DELETE FROM candidato WHERE cand_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
-      stmt.setInt(1, c.getCandidatoId());
+      stmt.setInt(1, c.getCandId());
       stmt.execute();
       stmt.close();
       System.out.println("Removido!");
@@ -94,9 +94,9 @@ public class CandidatoDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      stmt.setString(1, c.getCandidatoValido());
-      stmt.setInt(2, c.getPessoa().getPessoaId());
-      stmt.setInt(3, c.getCandidatoValido());
+      stmt.setBoolean(1, c.getCandValido());
+      stmt.setInt(2, c.getPesId());
+      stmt.setInt(3, c.getCandId());
 
       stmt.execute();
       stmt.close();
@@ -119,13 +119,14 @@ public class CandidatoDAO {
       Candidato candidato = new Candidato();
 
       while (rs.next()) {
-        candidato.setCandidatoValido(rs.getString("cand_valido"));
-
-        Pessoa pes = new Pessoa();
-        PessoaDAO pDAO = new PessoaDAO();
-        pes = pDAO.buscar(rs.getInt("pes_id"));
-
-        candidato.setPessoa(pes);
+    	  candidato.setCandId(rs.getInt("cand_id"));
+          candidato.setCandValido(rs.getBoolean("cand_valido"));
+          candidato.setPesId(rs.getInt("pes_id"));
+          candidato.setPesNome(rs.getString("pes_nome"));
+          candidato.setPesEndereco(rs.getString("pes_endereco"));
+          candidato.setPesTelefone(rs.getString("pes_telefone"));
+          candidato.setPesCpf(rs.getString("pes_cpf"));
+          candidato.setPesEmail(rs.getString("pes_email"));
       }
 
       rs.close();

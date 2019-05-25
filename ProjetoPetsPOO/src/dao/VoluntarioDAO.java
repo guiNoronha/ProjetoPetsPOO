@@ -23,7 +23,7 @@ public class VoluntarioDAO {
 
       stmt.setString(1, v.getVoluntarioAtuacao());
       stmt.setString(2, v.getVoluntarioArea());
-      stmt.setInt(3, v.getPessoa().getPesId());
+      stmt.setInt(3, v.getPesId());
 
       stmt.execute();
 
@@ -46,7 +46,7 @@ public class VoluntarioDAO {
 
   public ArrayList<Voluntario> getLista() throws Exception {
     try {
-      String sql = "SELECT * FROM voluntario";
+      String sql = "SELECT * FROM voluntario JOIN pessoa on pessoa.pes_id = voluntario.pes_id";
       PreparedStatement stmt = connection.prepareStatement(sql);
       ResultSet rs = stmt.executeQuery();
 
@@ -60,12 +60,15 @@ public class VoluntarioDAO {
         voluntario.setVoluntarioAtuacao(rs.getString("vol_atuacao"));
         voluntario.setVoluntarioArea(rs.getString("vol_area"));
 
-        Pessoa pes = new Pessoa();
-        PessoaDAO pDAO = new PessoaDAO();
-        pes = pDAO.buscar(rs.getInt("pes_id"));
-
-        voluntario.setPessoa(pes);
-
+      
+        voluntario.setPesId(rs.getInt("pes_id"));
+        voluntario.setPesNome(rs.getString("pes_nome"));
+        voluntario.setPesEndereco(rs.getString("pes_endereco"));
+        voluntario.setPesTelefone(rs.getString("pes_telefone"));
+        voluntario.setPesCpf(rs.getString("pes_cpf"));
+        voluntario.setPesEmail(rs.getString("pes_email"));
+        
+        
         voluntarios.add(voluntario);
       }
 
@@ -99,7 +102,7 @@ public class VoluntarioDAO {
 
       stmt.setString(1, v.getVoluntarioAtuacao());
       stmt.setString(2, v.getVoluntarioArea());
-      stmt.setInt(3, v.getPessoa().getPesId());
+      stmt.setInt(3, v.getPesId());
       stmt.setInt(4, v.getVoluntarioId());
 
       stmt.execute();
@@ -126,12 +129,14 @@ public class VoluntarioDAO {
         voluntario.setVoluntarioId(rs.getInt("vol_id"));
         voluntario.setVoluntarioAtuacao(rs.getString("vol_atuacao"));
         voluntario.setVoluntarioArea(rs.getString("vol_area"));
+        voluntario.setPesId(rs.getInt("pes_id"));
+        voluntario.setPesNome(rs.getString("pes_nome"));
+        voluntario.setPesEndereco(rs.getString("pes_endereco"));
+        voluntario.setPesTelefone(rs.getString("pes_telefone"));
+        voluntario.setPesCpf(rs.getString("pes_cpf"));
+        voluntario.setPesEmail(rs.getString("pes_email"));
 
-        Pessoa pes = new Pessoa();
-        PessoaDAO pDAO = new PessoaDAO();
-        pes = pDAO.buscar(rs.getInt("pes_id"));
-
-        voluntario.setPessoa(pes);
+        
       }
 
       rs.close();

@@ -1,30 +1,24 @@
-package application;
+package classes;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-
-public class Candidato {
+public class Candidato extends Pessoa{
 	
 	private Integer cand_id;
 	private boolean cand_valido;
-
-
+	
 	public Integer getCandId() {
-		return cand_id.get();
+		return cand_id;
 	}
 	
 	public void setCandId(Integer cand_id) {
-		this.cand_id.set(cand_id);
+		this.cand_id = cand_id;
 	}
 
 
-	public Integer getCandValido() {
-		return cand_valido.get();
+	public boolean getCandValido() {
+		return cand_valido;
 	}
 	
 	public void setCandValido(boolean cand_valido) {
-		this.cand_valido.set(cand_valido);
+		this.cand_valido = cand_valido;
 	}
-
-
+}
