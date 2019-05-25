@@ -1,4 +1,4 @@
-package application;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import classes.*;
 
 public class PessoaDAO {
   private Connection connection;
@@ -20,17 +21,17 @@ public class PessoaDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setString(1, p.getPessoaNome());
-      stmt.setString(2, p.getPessoaEndereco());
-      stmt.setString(3, p.getPessoaTelefone());
-      stmt.setStrin(4, p.getPessoaCPF());
-      stmt.setString(5, p.getPessoaEmail());
+      stmt.setString(1, p.getPesNome());
+      stmt.setString(2, p.getPesEndereco());
+      stmt.setString(3, p.getPesTelefone());
+      stmt.setString(4, p.getPesCpf());
+      stmt.setString(5, p.getPesEmail());
 
       stmt.execute();
 
       try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
         if (generatedKeys.next()) {
-          p.setPessoaId(generatedKeys.getInt(1));
+          p.setPesId(generatedKeys.getInt(1));
         } else {
           throw new SQLException("Creating person failed, no ID obtained.");
         }
@@ -42,7 +43,7 @@ public class PessoaDAO {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    return a;
+    return p;
   }
 
   public ArrayList<Pessoa> getLista() throws Exception {
@@ -56,12 +57,12 @@ public class PessoaDAO {
       while (rs.next()) {
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setPessoaId(rs.getInt("pes_id"));
-        pessoa.setPessoaNome(rs.getString("pes_nome"));
-        pessoa.setPessoaEndereco(rs.getString("pes_endereco"));
-        pessoa.setPessoaTelefone(rs.getString("pes_telefone"));
-        pessoa.setPessoaCPF(rs.getString("pes_cpf"));
-        pessoa.setPessoaEmail(rs.getString("pes_email"));
+        pessoa.setPesId(rs.getInt("pes_id"));
+        pessoa.setPesNome(rs.getString("pes_nome"));
+        pessoa.setPesEndereco(rs.getString("pes_endereco"));
+        pessoa.setPesTelefone(rs.getString("pes_telefone"));
+        pessoa.setPesCpf(rs.getString("pes_cpf"));
+        pessoa.setPesEmail(rs.getString("pes_email"));
 
         pessoas.add(pessoa);
       }
@@ -79,7 +80,7 @@ public class PessoaDAO {
     try {
       String sql = "DELETE FROM pessoa WHERE pes_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
-      stmt.setInt(1, p.getPessoaId());
+      stmt.setInt(1, p.getPesId());
       stmt.execute();
       stmt.close();
       System.out.println("Removido!");
@@ -94,12 +95,12 @@ public class PessoaDAO {
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      stmt.setString(1, p.getPessoaNome());
-      stmt.setString(2, p.getPessoaEndereco());
-      stmt.setString(3, p.getPessoaTelefone());
-      stmt.setStrin(4, p.getPessoaCPF());
-      stmt.setString(5, p.getPessoaEmail());
-      stmt.setString(6, p.getPessoaId());
+      stmt.setString(1, p.getPesNome());
+      stmt.setString(2, p.getPesEndereco());
+      stmt.setString(3, p.getPesTelefone());
+      stmt.setString(4, p.getPesCpf());
+      stmt.setString(5, p.getPesEmail());
+      stmt.setInt(6, p.getPesId());
       
       stmt.execute();
       stmt.close();
@@ -122,12 +123,12 @@ public class PessoaDAO {
       Pessoa pessoa = new Pessoa();
 
       while (rs.next()) {
-        pessoa.setPessoaId(rs.getInt("pes_id"));
-        pessoa.setPessoaNome(rs.getString("pes_nome"));
-        pessoa.setPessoaEndereco(rs.getString("pes_endereco"));
-        pessoa.setPessoaTelefone(rs.getString("pes_telefone"));
-        pessoa.setPessoaCPF(rs.getString("pes_cpf"));
-        pessoa.setPessoaEmail(rs.getString("pes_email"));
+        pessoa.setPesId(rs.getInt("pes_id"));
+        pessoa.setPesNome(rs.getString("pes_nome"));
+        pessoa.setPesEndereco(rs.getString("pes_endereco"));
+        pessoa.setPesTelefone(rs.getString("pes_telefone"));
+        pessoa.setPesCpf(rs.getString("pes_cpf"));
+        pessoa.setPesEmail(rs.getString("pes_email"));
       }
 
       rs.close();
