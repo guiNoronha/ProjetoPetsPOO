@@ -51,7 +51,7 @@ public class AdocaoDAO {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-    return s;
+    return a;
   }
 
   public ArrayList<Adocao> getLista() throws Exception {
