@@ -1,6 +1,7 @@
 package dao;//test
 
 import java.sql.Connection;
+import banco.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class PessoaDAO {
   private Connection connection;
 
   public PessoaDAO() throws Exception {
-    connection = new ConnectionFactory().getConnection();
+    connection = new Conexao().getConnection();
   }
 
   public Pessoa inserir(Pessoa p) {

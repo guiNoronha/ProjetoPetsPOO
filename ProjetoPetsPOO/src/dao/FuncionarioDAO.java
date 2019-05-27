@@ -1,6 +1,7 @@
 package dao;//test
 
 import java.sql.Connection;
+import banco.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class FuncionarioDAO {
   private Connection connection;
 
   public FuncionarioDAO() throws Exception {
-    connection = new ConnectionFactory().getConnection();
+    connection = new Conexao().getConnection();
   }
 
   public Funcionario inserir(Funcionario f) {

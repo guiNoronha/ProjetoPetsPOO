@@ -1,6 +1,7 @@
 package dao;
 
 import classes.*;
+import banco.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,7 @@ public class CandidatoDAO {
   private Connection connection;
 
   public CandidatoDAO() throws Exception {
-    connection = new ConnectionFactory().getConnection();
+    connection = new Conexao().getConnection();
   }
 
   public Candidato inserir(Candidato c) {

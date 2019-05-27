@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import banco.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ public class SuprimentoDAO {
 
   public SuprimentoDAO() throws Exception {
 //	  connection 
-	  connection = new ConnectionFactory().getConnection();
+	  connection = new Conexao().getConnection();
   }
 
   public Suprimento inserir(Suprimento s) {
