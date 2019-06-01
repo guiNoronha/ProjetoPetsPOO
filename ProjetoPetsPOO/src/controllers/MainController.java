@@ -23,6 +23,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-public class MainController extends ListarAnimalController implements Initializable{
+public class MainController implements Initializable{
 	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
 }
