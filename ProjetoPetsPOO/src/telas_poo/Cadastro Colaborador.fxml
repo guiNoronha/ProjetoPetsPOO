@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="CadColaboradorAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="CadColaboradorAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="CadColaboradorLblNome" layoutX="16.0" layoutY="38.0" text="Nome" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
       <TextField fx:id="CadColaboradorTxtFieldNome" layoutX="14.0" layoutY="55.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="55.0" />
@@ -21,7 +21,7 @@
       <TextField fx:id="CadColaboradorTxtFieldOcupacao" layoutX="76.0" layoutY="325.0" prefHeight="25.0" prefWidth="275.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="220.0" />
       <Label fx:id="CadColaboradorLblNascimento" layoutX="317.0" layoutY="200.0" text="Data de Nascimento" />
       <TextField fx:id="CadColaboradorTxtFieldNascimento" layoutX="337.0" layoutY="300.0" prefHeight="25.0" prefWidth="257.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="220.0" />
-      <Button fx:id="CadColaboradorBtnCancelar" mnemonicParsing="false" prefWidth="75.0" text="Cancelar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="125.0" />
+      <Button fx:id="CadColaboradorBtnCancelar" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" text="Cancelar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="117.0" />
       <Button fx:id="CadColaboradorBtnSalvar" layoutX="523.0" layoutY="350.0" mnemonicParsing="false" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
    </children>
 </AnchorPane>

@@ -2,29 +2,30 @@ package classes;
 
 import java.sql.Date;
 
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+
 public class Animal {
 	
 	private Integer ani_id;
-	private String ani_nome;
+    private final SimpleStringProperty ani_nome = new SimpleStringProperty();
 	private Date ani_entrada;
 	private Date ani_saida;
-	private String ani_raca;
-  	private String ani_tipo;
-
+	private final SimpleStringProperty ani_raca = new SimpleStringProperty();
+  	private final SimpleStringProperty ani_tipo = new SimpleStringProperty();
 
 	public Integer getAniId() {
 		return ani_id;
 	}
-	
-	public void setAniId(Integer verId) {
-		this.ani_id = verId;
+	public void setAniId(Integer ani_id) {
+		this.ani_id = ani_id;
 	}
-	
-	public String getAniNome() {
+	public ObservableValue<String> getAniNome() {
 		return ani_nome;
 	}
 	public void setAniNome(String ani_nome) {
-		this.ani_nome = ani_nome;
+		this.ani_nome.set(ani_nome);
 	}
 	public Date getAniEntrada() {
 		return ani_entrada;
@@ -38,17 +39,17 @@ public class Animal {
 	public void setAniSaida(Date ani_saida) {
 		this.ani_saida = ani_saida;
 	}
-	public String getAniRaca() {
+	public ObservableValue<String> getAniRaca() {
 		return ani_raca;
 	}
 	public void setAniRaca(String ani_raca) {
-		this.ani_raca = ani_raca;
+		this.ani_raca.set(ani_raca);
 	}
-	public String getAniTipo() {
+	public ObservableValue<String> getAniTipo() {
 		return ani_tipo;
 	}
 	
 	public void setAniTipo(String ani_tipo) {
-		this.ani_tipo = ani_tipo;
+		this.ani_tipo.set(ani_tipo);
 	}
 }

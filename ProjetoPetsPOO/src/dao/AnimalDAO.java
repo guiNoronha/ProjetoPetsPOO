@@ -18,24 +18,22 @@ public class AnimalDAO {
   }
 
   public Animal inserir(Animal a) {
-//    String sql = "INSERT INTO animal (ani_nome, ani_entrada, ani_raca, ani_tipo) VALUES (?, ?, ?, ?);";
-    String sql = "INSERT INTO animal (ani_nome, ani_entrada, ani_raca, ani_tipo) VALUES ('nome teste', '2019-10-10', 'raca teste', 'tipo teste');";
+	  String sql = "INSERT INTO animal (ani_nome, ani_entrada, ani_raca, ani_tipo) VALUES (?, ?, ?, ?);";
+    
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-//      java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
-//      java.sql.Date data_saida = new java.sql.Date(a.getAniSaida().getTime());
-//
-//      stmt.setString(1, a.getAniNome());
-//      
-//      if (a.getAniEntrada() != null) {
-//        stmt.setDate(2, data_entrada);
-//      } else {
-//        stmt.setDate(2, null);
-//      }
-//
-//      stmt.setString(3, a.getAniRaca());
-//      stmt.setString(4, a.getAniTipo());
+      stmt.setString(1, a.getAniNome().getValue());
+      
+      if (a.getAniEntrada() != null) {
+    	  java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
+        stmt.setDate(2, data_entrada);
+      } else {
+        stmt.setDate(2, null);
+      }
+
+      stmt.setString(3, a.getAniRaca().getValue());
+      stmt.setString(4, a.getAniTipo().getValue());
 
       stmt.execute();
 
@@ -100,31 +98,23 @@ public class AnimalDAO {
   }
 
   public void alterar(Animal a) {
-    String sql = "UPDATE animal SET ani_nome = ?, ani_entrada = ?, ani_saida = ?, ani_raca = ?, ani_tipo = ? WHERE ani_id = ?";
+    String sql = "UPDATE animal SET ani_nome = ?, ani_entrada = ?, ani_raca = ?, ani_tipo = ? WHERE ani_id = ?";
 
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
-      java.sql.Date data_saida = new java.sql.Date(a.getAniSaida().getTime());
-
-      stmt.setString(1, a.getAniNome());
+      stmt.setString(1, a.getAniNome().getValue());
 
       if (a.getAniEntrada() != null) {
+    	java.sql.Date data_entrada = new java.sql.Date(a.getAniEntrada().getTime());
         stmt.setDate(2, data_entrada);
       } else {
         stmt.setDate(2, null);
       }
 
-      if (a.getAniSaida() != null) {
-        stmt.setDate(3, data_saida);
-      } else {
-        stmt.setDate(3, null);
-      }
-
-      stmt.setString(4, a.getAniRaca());
-      stmt.setString(5, a.getAniTipo());
-      stmt.setInt(6, a.getAniId());
+      stmt.setString(3, a.getAniRaca().getValue());
+      stmt.setString(4, a.getAniTipo().getValue());
+      stmt.setInt(5, a.getAniId());
 
       stmt.execute();
       stmt.close();
