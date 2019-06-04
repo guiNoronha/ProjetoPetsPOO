@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainAnchorCandidatos" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<AnchorPane fx:id="MainAnchorCandidatos" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListarCandidatoController">
 	<!-- TODO Add Nodes -->
       <children>
          <TableView fx:id="MainTabelaCandidatos" layoutX="45.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
@@ -21,9 +18,8 @@
                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
          </TableView>
-         <Button fx:id="MainBtnCadastrarCandidatos" layoutX="483.0" layoutY="312.0" mnemonicParsing="false" prefWidth="75.0" text="Manter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+         <Button fx:id="MainBtnCadastrarCandidatos" layoutX="483.0" layoutY="312.0" mnemonicParsing="false" onAction="#manterCadastroCandidato" prefWidth="75.0" text="Manter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" />
          <Button fx:id="MainBtnDescricaoCandidatos" layoutX="14.0" layoutY="316.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Descrição" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" />
-         <Button layoutX="92.0" layoutY="311.0" mnemonicParsing="false" prefWidth="75.0" text="Excluir" />
+         <Button layoutX="92.0" layoutY="311.0" mnemonicParsing="false" onAction="#excluirCandidato" prefWidth="75.0" text="Excluir" />
       </children>
 </AnchorPane>
-

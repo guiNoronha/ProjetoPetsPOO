@@ -29,50 +29,48 @@ import javafx.util.Callback;
 
 public class ListarCandidatoController implements Initializable{
 	
-	@FXML
-	public TextField CadAnimalTxtFieldNome;
+//	@FXML
+//	public TextField CadCandidatoTxtFieldNome;
 	
 	@FXML
-    private TableView<Animal> MainTabelaAnimais = new TableView<Animal>();
+    private TableView<Candidato> MainTabelaCandidatos = new TableView<Candidato>();
     @FXML
-    private TableColumn<Animal, String> MainColunaAnimaisNome;
+    private TableColumn<Candidato, String> MainColunaCandidatosNome;
 	@FXML
-    private TableColumn<Animal, String> MainColunaAnimaisEspecie;
+    private TableColumn<Candidato, String> MainColunaCandidatosCpf;
 	@FXML
-    private TableColumn<Animal, String> MainColunaAnimaisRaca;
-    @FXML
-    private TableColumn<Animal, String> MainColunaAnimaisStatus;
+    private TableColumn<Candidato, String> MainColunaCandidatosTelefone;
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	
-		MainColunaAnimaisNome.setCellValueFactory(new Callback<CellDataFeatures<Animal, String>, 
+		MainColunaCandidatosNome.setCellValueFactory(new Callback<CellDataFeatures<Candidato, String>, 
                 ObservableValue<String>>() {
     	 
-		public ObservableValue<String> call(CellDataFeatures<Animal, String> data){  
-			return data.getValue().getAniNome();
+		public ObservableValue<String> call(CellDataFeatures<Candidato, String> data){  
+			return data.getValue().getPesNome();
 		}  
 		});
 		
 		
-		MainColunaAnimaisEspecie.setCellValueFactory(new Callback<CellDataFeatures<Animal, String>, 
+		MainColunaCandidatosCpf.setCellValueFactory(new Callback<CellDataFeatures<Candidato, String>, 
                 ObservableValue<String>>() {
     	 
-		public ObservableValue<String> call(CellDataFeatures<Animal, String> data){  
-			return data.getValue().getAniTipo();
+		public ObservableValue<String> call(CellDataFeatures<Candidato, String> data){  
+			return data.getValue().getPesCpf();
 		}  
 		});
 		
-		MainColunaAnimaisRaca.setCellValueFactory(new Callback<CellDataFeatures<Animal, String>, 
+		MainColunaCandidatosTelefone.setCellValueFactory(new Callback<CellDataFeatures<Candidato, String>, 
                 ObservableValue<String>>() {
     	 
-		public ObservableValue<String> call(CellDataFeatures<Animal, String> data){  
-			return data.getValue().getAniRaca();
+		public ObservableValue<String> call(CellDataFeatures<Candidato, String> data){  
+			return data.getValue().getPesTelefone();
 		}  
 		});
     	
 		try {
-			ListarAnimal();
+			ListarCandidato();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,59 +78,59 @@ public class ListarCandidatoController implements Initializable{
 	}
     
     @FXML
-	public void ListarAnimal() throws Exception {
-		MainTabelaAnimais.setItems(listaDeAnimais());
+	public void ListarCandidato() throws Exception {
+		MainTabelaCandidatos.setItems(listaDeCandidatos());
 	}
 	
-	private ObservableList<Animal> listaDeAnimais() throws Exception {
-    	AnimalDAO aDAO = new AnimalDAO();
-        return FXCollections.observableArrayList(aDAO.getLista());
+	private ObservableList<Candidato> listaDeCandidatos() throws Exception {
+    	CandidatoDAO cDAO = new CandidatoDAO();
+        return FXCollections.observableArrayList(cDAO.getLista());
     }
 	
 	@FXML
-	public void manterCadastroAnimal() throws Exception {
-		// Carrego o FXML do Animal
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../telas_poo/CadastroAnimal.fxml"));
+	public void manterCadastroCandidato() throws Exception {
+		// Carrego o FXML do Candidato
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../telas_poo/CadastroCandidato.fxml"));
 		Pane root = loader.load();
 		
 		// Atribuo o load do FXML a uma nova instancia do controller que faz referncia a ele
-		ManterAnimalController ac = (ManterAnimalController) loader.getController();
+		ManterCandidatoController cc = (ManterCandidatoController) loader.getController();
 		
-		// Verifico se é uma edição de Animal ou cadastro
-		if(MainTabelaAnimais.getSelectionModel().getSelectedItem() != null) {
+		// Verifico se é uma edição de Candidato ou cadastro
+		if(MainTabelaCandidatos.getSelectionModel().getSelectedItem() != null) {
 			
-			// Crio uma nova instancia do objeto Animal
-			Animal a = new Animal();
+			// Crio uma nova instancia do objeto Candidato
+			Candidato c = new Candidato();
 			
-			// Atribuo o item selecionado ao Animal
-			a = MainTabelaAnimais.getSelectionModel().getSelectedItem();
+			// Atribuo o item selecionado ao Candidato
+			c = MainTabelaCandidatos.getSelectionModel().getSelectedItem();
 			
-			// Chamada da função que vai atribuir os valores para a visualização do Animal já cadastrado
-			ac.editarAnimal(a);
+			// Chamada da função que vai atribuir os valores para a visualização do Candidato já cadastrado
+			cc.editarCandidato(c);
 		}
 		
-		// Crio uma scena da visualização da tela de cadastro do Animal e configuro ela
+		// Crio uma scena da visualização da tela de cadastro do Candidato e configuro ela
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
 		
-		stage.setTitle("Cadastro de novo Animal");
+		stage.setTitle("Cadastro de novo Candidato");
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setScene(scene);
 		
 		// Comandos depois dessa linha só serão executados quando a tela for fechada
 		stage.showAndWait();
 		
-		// Carrego novamemte a tabela com os Animals
-		ListarAnimal();
+		// Carrego novamemte a tabela com os Candidatos
+		ListarCandidato();
 	}
 	
 	@FXML
-	public void excluirAnimal() throws Exception {
-		AnimalDAO aDAO = new AnimalDAO();
-		if(MainTabelaAnimais.getSelectionModel().getSelectedItem() != null) {
-			Animal a = MainTabelaAnimais.getSelectionModel().getSelectedItem();
-			aDAO.remover(a);
-			ListarAnimal();
+	public void excluirCandidato() throws Exception {
+		CandidatoDAO cDAO = new CandidatoDAO();
+		if(MainTabelaCandidatos.getSelectionModel().getSelectedItem() != null) {
+			Candidato c = MainTabelaCandidatos.getSelectionModel().getSelectedItem();
+			cDAO.remover(c);
+			ListarCandidato();
 		}
 		
 	}

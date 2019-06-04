@@ -61,10 +61,11 @@ public class FuncionarioDAO {
         
         funcionario.setPesId(rs.getInt("pes_id"));
         funcionario.setPesNome(rs.getString("pes_nome"));
-        funcionario.setPesEndereco(rs.getString("pes_endereco"));
+        funcionario.setPesCep(rs.getString("pes_cep"));
         funcionario.setPesTelefone(rs.getString("pes_telefone"));
         funcionario.setPesCpf(rs.getString("pes_cpf"));
         funcionario.setPesEmail(rs.getString("pes_email"));
+        funcionario.setPesNumero(rs.getString("pes_numero"));
 
         funcionarios.add(funcionario);
       }
@@ -127,10 +128,11 @@ public class FuncionarioDAO {
 
         funcionario.setPesId(rs.getInt("pes_id"));
         funcionario.setPesNome(rs.getString("pes_nome"));
-        funcionario.setPesEndereco(rs.getString("pes_endereco"));
+        funcionario.setPesCep(rs.getString("pes_cep"));
         funcionario.setPesTelefone(rs.getString("pes_telefone"));
         funcionario.setPesCpf(rs.getString("pes_cpf"));
         funcionario.setPesEmail(rs.getString("pes_email"));
+        funcionario.setPesNumero(rs.getString("pes_numero"));
 
       }
 

@@ -1,13 +1,17 @@
-package classes;//test
+package classes;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 
 public class Pessoa {
 	
 	private Integer pes_id;
-	private String pes_nome;
-	private String pes_endereco;
-	private String pes_telefone;
-	private String pes_cpf;
+	private final SimpleStringProperty pes_nome = new SimpleStringProperty();
+	private String pes_cep;
+	private final SimpleStringProperty pes_telefone = new SimpleStringProperty();
+	private final SimpleStringProperty pes_cpf = new SimpleStringProperty();
 	private String pes_email;
+	private String pes_numero;
 
 	public Integer getPesId() {
 		return pes_id;
@@ -16,32 +20,32 @@ public class Pessoa {
 		this.pes_id = verId;
 	}
 	
-	public String getPesNome() {
+	public ObservableValue<String> getPesNome() {
 		return pes_nome;
 	}
 	public void setPesNome(String pes_nome) {
-		this.pes_nome = pes_nome;
+		this.pes_nome.set(pes_nome);
 	}
 	
-	public String getPesEndereco() {
-		return pes_endereco;
+	public String getPesCep() {
+		return pes_cep;
 	}
-	public void setPesEndereco(String pes_endereco) {
-		this.pes_endereco = pes_endereco;
+	public void setPesCep(String pes_cep) {
+		this.pes_cep = pes_cep;
 	}
 	
-	public String getPesTelefone() {
+	public ObservableValue<String> getPesTelefone() {
 		return pes_telefone;
 	}
 	public void setPesTelefone(String pes_telefone) {
-		this.pes_telefone = pes_telefone;
+		this.pes_telefone.set(pes_telefone);
 	}
 	
-	public String getPesCpf() {
+	public ObservableValue<String> getPesCpf() {
 		return pes_cpf;
 	}
 	public void setPesCpf(String pes_cpf) {
-		this.pes_cpf = pes_cpf;
+		this.pes_cpf.set(pes_cpf);
 	}
 	
 	public String getPesEmail() {
@@ -51,9 +55,10 @@ public class Pessoa {
 		this.pes_email = pes_email;
 	}
 	
-	@Override
-	public String toString() {
-		return this.getPesNome();
-		
+	public String getPesNumero() {
+		return pes_numero;
+	}	
+	public void setPesNumero(String pes_numero) {
+		this.pes_numero = pes_numero;
 	}
 }

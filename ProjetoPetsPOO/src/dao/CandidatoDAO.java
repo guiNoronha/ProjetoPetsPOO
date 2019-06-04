@@ -1,5 +1,6 @@
 package dao;
 
+import dao.*;
 import classes.*;
 import banco.*;
 import java.sql.Connection;
@@ -17,9 +18,12 @@ public class CandidatoDAO {
     connection = new Conexao().getConnection();
   }
 
-  public Candidato inserir(Candidato c) {
+  public Candidato inserir(Candidato c) throws Exception {
     String sql = "INSERT INTO candidato (cand_valido, pes_id) VALUES (?, ?);";
     try {
+      PessoaDAO pDAO = new PessoaDAO();
+      c = (Candidato) pDAO.inserir((Pessoa) c);
+      
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
       stmt.setBoolean(1, c.getCandValido());
@@ -60,10 +64,11 @@ public class CandidatoDAO {
         candidato.setCandValido(rs.getBoolean("cand_valido"));
         candidato.setPesId(rs.getInt("pes_id"));
         candidato.setPesNome(rs.getString("pes_nome"));
-        candidato.setPesEndereco(rs.getString("pes_endereco"));
+        candidato.setPesCep(rs.getString("pes_cep"));
         candidato.setPesTelefone(rs.getString("pes_telefone"));
         candidato.setPesCpf(rs.getString("pes_cpf"));
         candidato.setPesEmail(rs.getString("pes_email"));
+        candidato.setPesNumero(rs.getString("pes_numero"));
         candidatos.add(candidato);
       }
 
@@ -89,10 +94,13 @@ public class CandidatoDAO {
     }
   }
 
-  public void alterar(Candidato c) {
+  public void alterar(Candidato c) throws Exception {
     String sql = "UPDATE candidato SET cand_valido = ?, pes_id = ? WHERE cand_id = ?";
 
     try {
+      PessoaDAO pDAO = new PessoaDAO();
+      c = (Candidato) pDAO.alterar((Pessoa) c);
+      
       PreparedStatement stmt = connection.prepareStatement(sql);
 
       stmt.setBoolean(1, c.getCandValido());
@@ -124,10 +132,11 @@ public class CandidatoDAO {
           candidato.setCandValido(rs.getBoolean("cand_valido"));
           candidato.setPesId(rs.getInt("pes_id"));
           candidato.setPesNome(rs.getString("pes_nome"));
-          candidato.setPesEndereco(rs.getString("pes_endereco"));
+          candidato.setPesCep(rs.getString("pes_cep"));
           candidato.setPesTelefone(rs.getString("pes_telefone"));
           candidato.setPesCpf(rs.getString("pes_cpf"));
           candidato.setPesEmail(rs.getString("pes_email"));
+          candidato.setPesNumero(rs.getString("pes_numero"));
       }
 
       rs.close();

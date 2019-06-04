@@ -11,26 +11,23 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ManterCandidatoController implements Initializable {
-	Animal animalAuxiliar = new Animal();
+	Candidato candidatoAuxiliar = new Candidato();
 	
 	@FXML
-	public TextField CadAnimalTxtFieldNome;
+	public TextField CadPessoaTxtFieldNome;
 	
 	@FXML
-	public TextField CadAnimalTxtFieldCodigo;
+	public TextField CadPessoaTxtFieldCpf;
 	
 	@FXML
-	public TextField CadAnimalTxtFieldEspecie;
+	public TextField CadPessoaTxtFieldTelefone;
 	
 	@FXML
-	public TextField CadAnimalTxtFieldStatus;
+	public TextField CadPessoaTxtFieldCep;
 	
 	@FXML
-	public TextField CadAnimalTxtFieldRaca;
+	public TextField CadPessoaTxtFieldNumero;
 	
-	@FXML
-	public TextArea CadAnimalTxtAreaDescricao;
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -38,39 +35,42 @@ public class ManterCandidatoController implements Initializable {
 	}
 	
 	@FXML
-	public void manterAnimal() throws Exception {
-		AnimalDAO aDAO = new AnimalDAO();
-		animalAuxiliar.setAniNome(CadAnimalTxtFieldNome.getText());
-//		animalAuxiliar.setAniEntrada(CadAnimalTxtFieldNome.getText());
-		animalAuxiliar.setAniRaca(CadAnimalTxtFieldRaca.getText());
-		animalAuxiliar.setAniTipo(CadAnimalTxtFieldEspecie.getText());
+	public void manterCandidato() throws Exception {
+		CandidatoDAO cDAO = new CandidatoDAO();
+		candidatoAuxiliar.setPesNome(CadPessoaTxtFieldNome.getText());
+		candidatoAuxiliar.setPesCpf(CadPessoaTxtFieldCpf.getText());
+		candidatoAuxiliar.setPesTelefone(CadPessoaTxtFieldTelefone.getText());
+		candidatoAuxiliar.setPesCep(CadPessoaTxtFieldCep.getText());
+		candidatoAuxiliar.setPesNumero(CadPessoaTxtFieldNumero.getText());
 		
-		if(animalAuxiliar.getAniId() != null) {	
-			aDAO.alterar(animalAuxiliar);
+		if(candidatoAuxiliar.getPesId() != null) {	
+			cDAO.alterar(candidatoAuxiliar);
 		}
 		else{
-			aDAO.inserir(animalAuxiliar);
+			cDAO.inserir(candidatoAuxiliar);
 		}
 		
-		fecharTelaCadastroAnimal();
+		fecharTelaCadastroCandidato();
 	}
 	
 	@FXML
-	public void fecharTelaCadastroAnimal() throws Exception {
-		Stage stage = (Stage) CadAnimalTxtFieldNome.getScene().getWindow();
+	public void fecharTelaCadastroCandidato() throws Exception {
+		Stage stage = (Stage) CadPessoaTxtFieldNome.getScene().getWindow();
 		stage.close();
 	}
 	
 	@FXML
-	public void editarAnimal(Animal a) {
-		// Atribuo o animal que foi passado por parametro a um obejto animal auxiliar que existe como atributo dessa classe
-		animalAuxiliar = a;
+	public void editarCandidato(Candidato c) {
+		// Atribuo o candidato que foi passado por parametro a um obejto candidato auxiliar que existe como atributo dessa classe
+		candidatoAuxiliar = c;
 		
-		// Atribuo o valor do nome do animal ao seu respectivo textField
-		CadAnimalTxtFieldNome.textProperty().setValue(a.getAniNome().getValue());
-		CadAnimalTxtFieldRaca.textProperty().setValue(a.getAniRaca().getValue());
-		CadAnimalTxtFieldEspecie.textProperty().setValue(a.getAniTipo().getValue());
-		CadAnimalTxtFieldCodigo.textProperty().setValue(a.getAniId().toString());
+		// Atribuo o valor do nome do candidato ao seu respectivo textField
+		CadPessoaTxtFieldNome.textProperty().setValue(c.getPesNome().getValue());
+		CadPessoaTxtFieldCpf.textProperty().setValue(c.getPesCpf().getValue());
+		CadPessoaTxtFieldTelefone.textProperty().setValue(c.getPesTelefone().getValue());
+		CadPessoaTxtFieldCep.textProperty().setValue(c.getPesCep());
+		CadPessoaTxtFieldNumero.textProperty().setValue(c.getPesNumero());
+		
 		
 	}
 }

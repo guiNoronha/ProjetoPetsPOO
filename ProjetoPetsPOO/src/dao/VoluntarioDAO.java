@@ -64,10 +64,11 @@ public class VoluntarioDAO {
       
         voluntario.setPesId(rs.getInt("pes_id"));
         voluntario.setPesNome(rs.getString("pes_nome"));
-        voluntario.setPesEndereco(rs.getString("pes_endereco"));
+        voluntario.setPesCep(rs.getString("pes_cep"));
         voluntario.setPesTelefone(rs.getString("pes_telefone"));
         voluntario.setPesCpf(rs.getString("pes_cpf"));
         voluntario.setPesEmail(rs.getString("pes_email"));
+        voluntario.setPesNumero(rs.getString("pes_numero"));
         
         
         voluntarios.add(voluntario);
@@ -132,10 +133,11 @@ public class VoluntarioDAO {
         voluntario.setVoluntarioArea(rs.getString("vol_area"));
         voluntario.setPesId(rs.getInt("pes_id"));
         voluntario.setPesNome(rs.getString("pes_nome"));
-        voluntario.setPesEndereco(rs.getString("pes_endereco"));
+        voluntario.setPesCep(rs.getString("pes_cep"));
         voluntario.setPesTelefone(rs.getString("pes_telefone"));
         voluntario.setPesCpf(rs.getString("pes_cpf"));
         voluntario.setPesEmail(rs.getString("pes_email"));
+        voluntario.setPesNumero(rs.getString("pes_numero"));
 
         
       }

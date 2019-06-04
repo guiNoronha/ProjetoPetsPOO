@@ -18,15 +18,16 @@ public class PessoaDAO {
   }
 
   public Pessoa inserir(Pessoa p) {
-    String sql = "INSERT INTO pessoa (pes_nome, pes_endereco, pes_telefone, pes_cpf, pes_email) VALUES (?, ?, ?, ?, ?);";
+    String sql = "INSERT INTO pessoa (pes_nome, pes_cep, pes_telefone, pes_cpf, pes_email, pes_numero) VALUES (?, ?, ?, ?, ?, ?);";
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setString(1, p.getPesNome());
-      stmt.setString(2, p.getPesEndereco());
-      stmt.setString(3, p.getPesTelefone());
-      stmt.setString(4, p.getPesCpf());
+      stmt.setString(1, p.getPesNome().getValue());
+      stmt.setString(2, p.getPesCep());
+      stmt.setString(3, p.getPesTelefone().getValue());
+      stmt.setString(4, p.getPesCpf().getValue());
       stmt.setString(5, p.getPesEmail());
+      stmt.setString(6, p.getPesNumero());
 
       stmt.execute();
 
@@ -60,12 +61,13 @@ public class PessoaDAO {
         Pessoa pessoa = new Pessoa();
         pessoa.setPesId(rs.getInt("pes_id"));
         pessoa.setPesNome(rs.getString("pes_nome"));
-        pessoa.setPesEndereco(rs.getString("pes_endereco"));
+        pessoa.setPesCep(rs.getString("pes_cep"));
         pessoa.setPesTelefone(rs.getString("pes_telefone"));
         pessoa.setPesCpf(rs.getString("pes_cpf"));
         pessoa.setPesEmail(rs.getString("pes_email"));
-
+        pessoa.setPesNumero(rs.getString("pes_numero"));
         pessoas.add(pessoa);
+        
       }
 
       rs.close();
@@ -90,18 +92,19 @@ public class PessoaDAO {
     }
   }
 
-  public void alterar(Pessoa p) {
-    String sql = "UPDATE pessoa SET pes_nome = ?, pes_endereco = ?, pes_telefone = ?, pes_cpf = ?, pes_email = ? WHERE pes_id = ?";
+  public Pessoa alterar(Pessoa p) {
+    String sql = "UPDATE pessoa SET pes_nome = ?, pes_cep = ?, pes_telefone = ?, pes_cpf = ?, pes_email = ?, pes_numero = ? WHERE pes_id = ?";
 
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      stmt.setString(1, p.getPesNome());
-      stmt.setString(2, p.getPesEndereco());
-      stmt.setString(3, p.getPesTelefone());
-      stmt.setString(4, p.getPesCpf());
+      stmt.setString(1, p.getPesNome().getValue());
+      stmt.setString(2, p.getPesCep());
+      stmt.setString(3, p.getPesTelefone().getValue());
+      stmt.setString(4, p.getPesCpf().getValue());
       stmt.setString(5, p.getPesEmail());
-      stmt.setInt(6, p.getPesId());
+      stmt.setString(6, p.getPesNumero());
+      stmt.setInt(7, p.getPesId());
       
       stmt.execute();
       stmt.close();
@@ -109,6 +112,7 @@ public class PessoaDAO {
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
+    return p;
   }
 
   public Pessoa buscar(Integer pes_id) throws Exception {
@@ -126,10 +130,11 @@ public class PessoaDAO {
       while (rs.next()) {
         pessoa.setPesId(rs.getInt("pes_id"));
         pessoa.setPesNome(rs.getString("pes_nome"));
-        pessoa.setPesEndereco(rs.getString("pes_endereco"));
+        pessoa.setPesCep(rs.getString("pes_cep"));
         pessoa.setPesTelefone(rs.getString("pes_telefone"));
         pessoa.setPesCpf(rs.getString("pes_cpf"));
         pessoa.setPesEmail(rs.getString("pes_email"));
+        pessoa.setPesNumero(rs.getString("pes_numero"));
       }
 
       rs.close();
