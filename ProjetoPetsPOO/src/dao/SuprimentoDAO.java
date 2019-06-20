@@ -19,27 +19,20 @@ public class SuprimentoDAO {
   }
 
   public Suprimento inserir(Suprimento s) {
-    String sql = "INSERT INTO suprimento (sup_nome, sup_validade, sup_quantidade) VALUES (?, ?, ?);";
+    String sql = "INSERT INTO suprimento (sup_tipo, sup_origem, sup_descricao) VALUES (?, ?, ?);";
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      java.sql.Date validade = new java.sql.Date(s.getSuprimentoValidade().getTime());
-
-      stmt.setString(1, s.getSuprimentoNome());
-      
-      if (s.getSuprimentoValidade() != null) {
-        stmt.setDate(2, validade);
-      } else {
-        stmt.setDate(2, null);
-      }
-
-      stmt.setInt(3, s.getSuprimentoQuantidade());
+      stmt.setString(1, s.getSupTipo().getValue());
+      stmt.setString(2, s.getSupOrigem().getValue());
+      stmt.setString(3, s.getSupDescricao().getValue());
+      stmt.setInt(4, s.getSupId());
 
       stmt.execute();
 
       try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
         if (generatedKeys.next()) {
-          s.setSuprimentoId(generatedKeys.getInt(1));
+          s.setSupId(generatedKeys.getInt(1));
         } else {
           throw new SQLException("Creating sup failed, no ID obtained.");
         }
@@ -65,10 +58,10 @@ public class SuprimentoDAO {
       while (rs.next()) {
 
         Suprimento suprimento = new Suprimento();
-        suprimento.setSuprimentoId(rs.getInt("sup_id"));
-        suprimento.setSuprimentoNome(rs.getString("sup_nome"));
-        suprimento.setSuprimentoValidade(rs.getDate("sup_validade"));
-        suprimento.setSuprimentoQuantidade(rs.getInt("sup_quantidade"));
+        suprimento.setSupId(rs.getInt("sup_id"));
+        suprimento.setSupTipo(rs.getString("sup_tipo"));
+        suprimento.setSupOrigem(rs.getString("sup_origem"));
+        suprimento.setSupDescricao(rs.getString("sup_descricao"));
 
         suprimentos.add(suprimento);
       }
@@ -86,7 +79,7 @@ public class SuprimentoDAO {
     try {
       String sql = "DELETE FROM suprimento WHERE sup_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
-      stmt.setInt(1, s.getSuprimentoId());
+      stmt.setInt(1, s.getSupId());
       stmt.execute();
       stmt.close();
       System.out.println("Removido!");
@@ -96,23 +89,15 @@ public class SuprimentoDAO {
   }
 
   public void alterar(Suprimento s) {
-    String sql = "UPDATE suprimento SET sup_nome = ?, sup_validade = ?, sup_quantidade = ? WHERE sup_id = ?";
+    String sql = "UPDATE suprimento SET sup_tipo = ?, sup_origem = ?, sup_descricao = ? WHERE sup_id = ?";
 
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      java.sql.Date validade = new java.sql.Date(s.getSuprimentoValidade().getTime());
-
-      stmt.setString(1, s.getSuprimentoNome());
-      
-      if (s.getSuprimentoValidade() != null) {
-        stmt.setDate(2, validade);
-      } else {
-        stmt.setDate(2, null);
-      }
-
-      stmt.setInt(3, s.getSuprimentoQuantidade());
-      stmt.setInt(4, s.getSuprimentoId());
+      stmt.setString(1, s.getSupTipo().getValue());
+      stmt.setString(2, s.getSupOrigem().getValue());
+      stmt.setString(3, s.getSupDescricao().getValue());
+      stmt.setInt(4, s.getSupId());
 
       stmt.execute();
       stmt.close();
@@ -135,10 +120,10 @@ public class SuprimentoDAO {
       Suprimento suprimento = new Suprimento();
 
       while (rs.next()) {
-        suprimento.setSuprimentoId(rs.getInt("sup_id"));
-        suprimento.setSuprimentoNome(rs.getString("sup_nome"));
-        suprimento.setSuprimentoValidade(rs.getDate("sup_validade"));
-        suprimento.setSuprimentoQuantidade(rs.getInt("sup_quantidade"));
+    	  suprimento.setSupId(rs.getInt("sup_id"));
+          suprimento.setSupTipo(rs.getString("sup_tipo"));
+          suprimento.setSupOrigem(rs.getString("sup_origem"));
+          suprimento.setSupDescricao(rs.getString("sup_descricao"));
       }
 
       rs.close();

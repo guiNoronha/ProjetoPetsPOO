@@ -2,46 +2,39 @@ package classes;
 
 import java.sql.Date;
 
-import javafx.beans.property.SimpleIntegerProperty;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 
 public class Suprimento {
 	
 	private Integer sup_id;
-	private String sup_nome;
-	private Date sup_validade;
-	private Integer sup_quantidade;
+    private final SimpleStringProperty sup_tipo = new SimpleStringProperty();
+	private final SimpleStringProperty sup_origem = new SimpleStringProperty();
+  	private final SimpleStringProperty sup_descricao = new SimpleStringProperty();
 
-	public Integer getSuprimentoId() {
+	public Integer getSupId() {
 		return sup_id;
-//		sup_id
 	}
-	public void setSuprimentoId(Integer sup_id) {
+	public void setSupId(Integer sup_id) {
 		this.sup_id = sup_id;
 	}
-
-
-	public String getSuprimentoNome() {
-		return sup_nome;
+	public ObservableValue<String> getSupTipo() {
+		return sup_tipo;
 	}
-	public void setSuprimentoNome(String sup_nome) {
-		this.sup_nome = sup_nome;
+	public void setSupTipo(String sup_tipo) {
+		this.sup_tipo.set(sup_tipo);
 	}
-
-	public Date getSuprimentoValidade() {
-		return sup_validade;
+	public ObservableValue<String> getSupOrigem() {
+		return sup_origem;
 	}
-	public void setSuprimentoValidade(Date sup_validade) {
-		this.sup_validade = sup_validade;
+	public void setSupOrigem(String sup_origem) {
+		this.sup_origem.set(sup_origem);
 	}
-
-
-	public Integer getSuprimentoQuantidade() {
-		return sup_quantidade;
+	public ObservableValue<String> getSupDescricao() {
+		return sup_descricao;
 	}
-	public void setSuprimentoQuantidade(Integer sup_quantidade) {
-		this.sup_quantidade = sup_quantidade;
+	public void setSupDescricao(String sup_descricao) {
+		this.sup_descricao.set(sup_descricao);
 	}
-
 }

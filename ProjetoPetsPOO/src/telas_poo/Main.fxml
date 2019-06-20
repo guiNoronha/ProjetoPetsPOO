@@ -1,35 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="MainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane fx:id="MainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
       <TabPane fx:id="MainPainelAbas" layoutX="110.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <tabs>
             <Tab fx:id="MainAbaAnimais" text="Animais">
-               <fx:include fx:id="AbaAnimais" source="AbaAnimais.fxml"/>
+               <fx:include fx:id="AbaAnimais" source="AbaAnimais.fxml" />
             </Tab>
              
             <Tab fx:id="MainAbaCandidatos" text="Candidatos">
-               <fx:include fx:id="AbaCandidatos" source="AbaCandidatos.fxml"/>
+               <fx:include fx:id="AbaCandidatos" source="AbaCandidatos.fxml" />
             </Tab>
             
             <Tab fx:id="MainAbaColaboradores" text="Colaboradores">
-               <fx:include fx:id="AbaColaboradores" source="AbaColaboradores.fxml"/>
+               <fx:include fx:id="AbaColaboradores" source="AbaColaboradores.fxml" />
             </Tab>
             
-            <Tab fx:id="MainAbaRecursos" text="Recursos">
-               <fx:include fx:id="AbaRecursos" source="AbaRecursos.fxml"/>
+            <Tab fx:id="MainAbaFuncionarios" text="Funcionario">
+               <fx:include fx:id="AbaFuncionarios" source="AbaFuncionario.fxml" />
+            </Tab> 
+            
+            <Tab fx:id="MainAbaSuprimentos" text="Suprimentos">
+               <fx:include fx:id="AbaSuprimentos" source="AbaSuprimento.fxml" />
             </Tab>
             
             <Tab fx:id="MainAbaFinanceiro" text="Financeiro">
-               <fx:include fx:id="AbaFinanceiro" source="AbaFinanceiro.fxml"/>
-            </Tab>         
+               <fx:include fx:id="AbaFinanceiro" source="AbaFinanceiro.fxml" />
+            </Tab>   
+            
+            <Tab fx:id="MainAbaAdocao" text="Adoção">
+               
+            </Tab>
+            
+            <Tab fx:id="MainAbaEvento" text="Evento">
+               
+            </Tab>
+            
+            <Tab fx:id="MainAbaRelatorio" text="Relatórios">
+               
+            </Tab>   
+                  
         </tabs>
       </TabPane>
    </children>
