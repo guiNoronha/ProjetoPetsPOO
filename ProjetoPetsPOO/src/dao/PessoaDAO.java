@@ -142,4 +142,36 @@ public class PessoaDAO {
     }
     return null;
   }
+  
+  public Pessoa buscarDadosLogin(Pessoa pes) throws Exception {
+	    try {
+	      String sql = "SELECT * FROM pessoa where pes_cpf = ? and pes_senha = ?";
+	      PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+	      stmt.setString(1, pes.getPesCpf().getValue());
+	      stmt.setString(2, pes.getPesSenha());
+	      stmt.execute();
+
+	      ResultSet rs = stmt.executeQuery();
+
+	      Pessoa pessoa = new Pessoa();
+
+	      while (rs.next()) {
+	        pessoa.setPesId(rs.getInt("pes_id"));
+	        pessoa.setPesNome(rs.getString("pes_nome"));
+	        pessoa.setPesCep(rs.getString("pes_cep"));
+	        pessoa.setPesTelefone(rs.getString("pes_telefone"));
+	        pessoa.setPesCpf(rs.getString("pes_cpf"));
+	        pessoa.setPesNumero(rs.getString("pes_numero"));
+	      }
+
+	      rs.close();
+	      stmt.close();
+
+	      return pessoa;
+	    } catch (SQLException e) {
+	      e.printStackTrace();
+	    }
+	    return null;
+	  }
 }

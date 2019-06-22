@@ -12,6 +12,7 @@ public class Pessoa {
 	private final SimpleStringProperty pes_cpf = new SimpleStringProperty();
 	private String pes_email;
 	private String pes_numero;
+	private String pes_senha;
 
 	public Integer getPesId() {
 		return pes_id;
@@ -60,5 +61,11 @@ public class Pessoa {
 	}	
 	public void setPesNumero(String pes_numero) {
 		this.pes_numero = pes_numero;
+	}
+	public String getPesSenha() {
+		return pes_senha;
+	}
+	public void setPesSenha(String pes_senha) {
+		this.pes_senha = pes_senha;
 	}
 }

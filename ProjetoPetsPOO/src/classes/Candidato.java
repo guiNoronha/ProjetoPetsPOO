@@ -21,4 +21,10 @@ public class Candidato extends Pessoa{
 	public void setCandValido(boolean cand_valido) {
 		this.cand_valido = cand_valido;
 	}
+	
+	@Override
+	public String toString() {
+		return this.getPesNome().getValue();
+		
+	}
 }

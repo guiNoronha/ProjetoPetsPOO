@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="CadAdocaoAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManterAdocaoController">
+   <children>
+      <Button fx:id="CadAdocaoBtnCancelar" layoutX="183.0" layoutY="116.0" mnemonicParsing="false" onAction="#fecharTelaCadastroAdocao" prefHeight="26.0" prefWidth="83.0" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="99.0" />
+      <Button fx:id="CadAdocaoBtnSalvar" layoutX="276.0" layoutY="177.0" mnemonicParsing="false" onAction="#manterAdocao" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Label layoutX="12.0" layoutY="29.0" text="Animal" />
+      <Label layoutX="205.0" layoutY="29.0" text="Candidato" />
+      <ComboBox fx:id="comboBoxAnimal" layoutX="12.0" layoutY="52.0" prefWidth="150.0" promptText="Selecione" />
+      <ComboBox fx:id="comboBoxCandidato" layoutX="204.0" layoutY="52.0" prefWidth="150.0" promptText="Selecione" />
+   </children>
+</AnchorPane>

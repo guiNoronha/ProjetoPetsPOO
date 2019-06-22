@@ -52,4 +52,10 @@ public class Animal {
 	public void setAniTipo(String ani_tipo) {
 		this.ani_tipo.set(ani_tipo);
 	}
+	
+	@Override
+	public String toString() {
+		return this.getAniNome().getValue();
+		
+	}
 }

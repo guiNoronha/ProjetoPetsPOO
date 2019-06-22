@@ -33,7 +33,7 @@
             </Tab>   
             
             <Tab fx:id="MainAbaAdocao" text="Adoção">
-               
+            	<fx:include fx:id="AbaAdocao" source="AbaAdocao.fxml" />
             </Tab>
             
             <Tab fx:id="MainAbaEvento" text="Evento">
@@ -41,7 +41,7 @@
             </Tab>
             
             <Tab fx:id="MainAbaRelatorio" text="Relatórios">
-               
+				<fx:include fx:id="AbaRelatorios" source="AbaRelatorios.fxml" />
             </Tab>   
                   
         </tabs>

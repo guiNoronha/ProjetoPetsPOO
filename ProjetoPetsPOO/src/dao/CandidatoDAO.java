@@ -116,7 +116,7 @@ public class CandidatoDAO {
 
   public Candidato buscar(Integer cand_id) throws Exception {
     try {
-      String sql = "SELECT * FROM candidato where cand_id = ?";
+      String sql = "SELECT * FROM candidato join pessoa on pessoa.pes_id = candidato.pes_id where cand_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
       stmt.setInt(1, cand_id);

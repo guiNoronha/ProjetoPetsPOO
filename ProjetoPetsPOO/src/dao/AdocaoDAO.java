@@ -19,21 +19,12 @@ public class AdocaoDAO {
   }
 
   public Adocao inserir(Adocao a) {
-    String sql = "INSERT INTO adocao (adoc_data, cand_id, ani_id, vol_id) VALUES (?, ?, ?, ?);";
+    String sql = "INSERT INTO adocao (cand_id, ani_id) VALUES (?, ?);";
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      java.sql.Date data = new java.sql.Date(a.getAdocaoData().getTime());
-      
-      if (a.getAdocaoData() != null) {
-        stmt.setDate(1, data);
-      } else {
-        stmt.setDate(1, null);
-      }
-
-      stmt.setInt(2, a.getCandidato().getCandidatoId());
-      stmt.setInt(3, a.getAnimal().getAnimalId());
-      stmt.setInt(4, a.getVoluntario().getVoluntarioId());
+      stmt.setInt(1, a.getCand().getCandId());
+      stmt.setInt(2, a.getAni().getAniId());
 
 
       stmt.execute();
@@ -67,8 +58,7 @@ public class AdocaoDAO {
 
         Adocao adocao = new Adocao();
 
-        adocao.setAdocaoId(rs.getInt("adoc_id"));
-        adocao.setAdocaoData(rs.getDate("adoc_data"));
+        adocao.setAdocaoId(rs.getInt("ad_id"));
 
         Candidato cand = new Candidato();
         CandidatoDAO cDAO = new CandidatoDAO();
@@ -78,13 +68,8 @@ public class AdocaoDAO {
         AnimalDAO aDAO = new AnimalDAO();
         ani = aDAO.buscar(rs.getInt("ani_id"));
 
-        Voluntario vol = new Voluntario();
-        VoluntarioDAO vDAO = new VoluntarioDAO();
-        vol = vDAO.buscar(rs.getInt("vol_id"));
-
-        adocao.setCandidato(cand);
-        adocao.setAnimal(ani);
-        adocao.setVoluntario(vol);
+        adocao.setCand(cand);
+        adocao.setAni(ani);
 
         lista_adocao.add(adocao);
       }
@@ -100,7 +85,7 @@ public class AdocaoDAO {
 
   public void remover(Adocao a) {
     try {
-      String sql = "DELETE FROM adocao WHERE adoc_id = ?";
+      String sql = "DELETE FROM adocao WHERE ad_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
       stmt.setInt(1, a.getAdocaoId());
       stmt.execute();
@@ -112,23 +97,14 @@ public class AdocaoDAO {
   }
 
   public void alterar(Adocao a) {
-    String sql = "UPDATE adocao SET adoc_data = ?, cand_id = ?, ani_id = ?, vol_id = ? WHERE adoc_id = ?";
+    String sql = "UPDATE adocao SET cand_id = ?, ani_id = ? WHERE ad_id = ?";
 
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      java.sql.Date data = new java.sql.Date(a.getAdocaoDate().getTime());
-
-      if (a.getAdocaoData() != null) {
-        stmt.setDate(1, data);
-      } else {
-        stmt.setDate(1, null);
-      }
-
-      stmt.setInt(2, a.getCandidato().getCandidatoId());
-      stmt.setInt(3, a.getAnimal().getAnimalId());
-      stmt.setInt(4, a.getVoluntario().getVoluntarioId());
-      stmt.setInt(5, a.getAdocaoId());
+      stmt.setInt(1, a.getCand().getCandId());
+      stmt.setInt(2, a.getAni().getAniId());
+      stmt.setInt(3, a.getAdocaoId());
 
       stmt.execute();
       stmt.close();
@@ -138,12 +114,12 @@ public class AdocaoDAO {
     }
   }
 
-  public Adocao buscar(Integer adoc_id) throws Exception {
+  public Adocao buscar(Integer ad_id) throws Exception {
     try {
-      String sql = "SELECT * FROM adocao where adoc_id = ?";
+      String sql = "SELECT * FROM adocao where ad_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setInt(1, adoc_id);
+      stmt.setInt(1, ad_id);
       stmt.execute();
 
       ResultSet rs = stmt.executeQuery();
@@ -151,10 +127,8 @@ public class AdocaoDAO {
       Adocao adocao = new Adocao();
 
       while (rs.next()) {
-        Adocao adocao = new Adocao();
 
-        adocao.setAdocaoId(rs.getInt("adoc_id"));
-        adocao.setAdocaoData(rs.getDate("adoc_data"));
+        adocao.setAdocaoId(rs.getInt("ad_id"));
 
         Candidato cand = new Candidato();
         CandidatoDAO cDAO = new CandidatoDAO();
@@ -163,14 +137,9 @@ public class AdocaoDAO {
         Animal ani = new Animal();
         AnimalDAO aDAO = new AnimalDAO();
         ani = aDAO.buscar(rs.getInt("ani_id"));
-
-        Voluntario vol = new Voluntario();
-        VoluntarioDAO vDAO = new VoluntarioDAO();
-        vol = vDAO.buscar(rs.getInt("vol_id"));
-
-        adocao.setCandidato(cand);
-        adocao.setAnimal(ani);
-        adocao.setVoluntario(vol);
+        
+        adocao.setCand(cand);
+        adocao.setAni(ani);
       }
 
       rs.close();

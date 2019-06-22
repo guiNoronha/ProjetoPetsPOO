@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableRow;
@@ -31,7 +32,9 @@ public class ListarAnimalController implements Initializable{
 	
 	@FXML
 	public TextField CadAnimalTxtFieldNome;
-	
+	@FXML
+    public Button MainBtnCadastrarAnimais;
+    
 	@FXML
     private TableView<Animal> MainTabelaAnimais = new TableView<Animal>();
     @FXML
@@ -45,7 +48,12 @@ public class ListarAnimalController implements Initializable{
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	Context c = Context.getInstance();
+    	Pessoa usuario = c.getUsuarioAtual();
+//    	System.out.println(usuario.getPesNome().getValue());
     	
+//		MainBtnCadastrarAnimais.setDisable(true);
+		
 		MainColunaAnimaisNome.setCellValueFactory(new Callback<CellDataFeatures<Animal, String>, 
                 ObservableValue<String>>() {
     	 

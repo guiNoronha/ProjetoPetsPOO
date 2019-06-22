@@ -14,7 +14,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			AnchorPane root = FXMLLoader.load(getClass().getResource("../telas_poo/Main.fxml"));
+			AnchorPane root = FXMLLoader.load(getClass().getResource("../telas_poo/Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
