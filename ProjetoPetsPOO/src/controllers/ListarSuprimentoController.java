@@ -32,39 +32,39 @@ public class ListarSuprimentoController implements Initializable{
 	@FXML
     private TableView<Suprimento> MainTabelaSuprimentos = new TableView<Suprimento>();
     @FXML
-    private TableColumn<Suprimento, String> MainColunaSuprimentosNome;
+    private TableColumn<Suprimento, String> MainColunaSuprimentosTipo;
 	@FXML
-    private TableColumn<Suprimento, String> MainColunaSuprimentosCpf;
+    private TableColumn<Suprimento, String> MainColunaSuprimentosOrigem;
 	@FXML
-    private TableColumn<Suprimento, String> MainColunaSuprimentosFuncao;
+    private TableColumn<Suprimento, String> MainColunaSuprimentosDescricao;
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	
-//		MainColunaSuprimentosNome.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
-//                ObservableValue<String>>() {
-//    	 
-//		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
-//			return data.getValue().getPesNome();
-//		}  
-//		});
-//		
-//		
-//		MainColunaSuprimentosCpf.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
-//                ObservableValue<String>>() {
-//    	 
-//		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
-//			return data.getValue().getPesCpf();
-//		}  
-//		});
-//		
-//		MainColunaSuprimentosFuncao.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
-//                ObservableValue<String>>() {
-//    	 
-//		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
-//			return data.getValue().getPesTelefone();
-//		}  
-//		});
+		MainColunaSuprimentosTipo.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
+			return data.getValue().getSupTipo();
+		}  
+		});
+		
+		
+		MainColunaSuprimentosOrigem.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
+			return data.getValue().getSupOrigem();
+		}  
+		});
+		
+		MainColunaSuprimentosDescricao.setCellValueFactory(new Callback<CellDataFeatures<Suprimento, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Suprimento, String> data){  
+			return data.getValue().getSupDescricao();
+		}  
+		});
     	
 		try {
 			ListarSuprimento();
@@ -91,19 +91,19 @@ public class ListarSuprimentoController implements Initializable{
 		Pane root = loader.load();
 		
 		// Atribuo o load do FXML a uma nova instancia do controller que faz referncia a ele
-		ManterSuprimentoController cc = (ManterSuprimentoController) loader.getController();
-		
+		ManterSuprimentoController ss = (ManterSuprimentoController) loader.getController();
+//		
 		// Verifico se é uma edição de Suprimento ou cadastro
 		if(MainTabelaSuprimentos.getSelectionModel().getSelectedItem() != null) {
 			
 			// Crio uma nova instancia do objeto Suprimento
-			Suprimento c = new Suprimento();
+			Suprimento s = new Suprimento();
 			
 			// Atribuo o item selecionado ao Suprimento
-			c = MainTabelaSuprimentos.getSelectionModel().getSelectedItem();
+			s = MainTabelaSuprimentos.getSelectionModel().getSelectedItem();
 			
 			// Chamada da função que vai atribuir os valores para a visualização do Suprimento já cadastrado
-			cc.editarSuprimento(c);
+			ss.editarSuprimento(s);
 		}
 		
 		// Crio uma scena da visualização da tela de cadastro do Suprimento e configuro ela
@@ -123,10 +123,10 @@ public class ListarSuprimentoController implements Initializable{
 	
 	@FXML
 	public void excluirSuprimento() throws Exception {
-		SuprimentoDAO cDAO = new SuprimentoDAO();
+		SuprimentoDAO sDAO = new SuprimentoDAO();
 		if(MainTabelaSuprimentos.getSelectionModel().getSelectedItem() != null) {
-			Suprimento c = MainTabelaSuprimentos.getSelectionModel().getSelectedItem();
-			cDAO.remover(c);
+			Suprimento s = MainTabelaSuprimentos.getSelectionModel().getSelectedItem();
+			sDAO.remover(s);
 			ListarSuprimento();
 		}
 		

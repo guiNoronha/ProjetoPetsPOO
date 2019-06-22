@@ -26,7 +26,6 @@ public class SuprimentoDAO {
       stmt.setString(1, s.getSupTipo().getValue());
       stmt.setString(2, s.getSupOrigem().getValue());
       stmt.setString(3, s.getSupDescricao().getValue());
-      stmt.setInt(4, s.getSupId());
 
       stmt.execute();
 

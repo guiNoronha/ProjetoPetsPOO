@@ -30,13 +30,11 @@ import javafx.util.Callback;
 public class ListarFinanceiroController implements Initializable{
 	
 	@FXML
-    private TableView<Financeiro> MainTabelaFinanceiros = new TableView<Financeiro>();
+    private TableView<Financeiro> MainTabelaFinanceiro = new TableView<Financeiro>();
     @FXML
     private TableColumn<Financeiro, String> MainColunaFinanceiroCategoria;
 	@FXML
     private TableColumn<Financeiro, String> MainColunaFinanceiroDescricao;
-	@FXML
-    private TableColumn<Financeiro, String> MainColunaFinanceiroValor;
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -57,7 +55,7 @@ public class ListarFinanceiroController implements Initializable{
 			return data.getValue().getFinDescricao();
 		}  
 		});
-    	
+		
 		try {
 			ListarFinanceiro();
 		} catch (Exception e) {
@@ -68,7 +66,7 @@ public class ListarFinanceiroController implements Initializable{
     
     @FXML
 	public void ListarFinanceiro() throws Exception {
-		MainTabelaFinanceiros.setItems(listaDeFinanceiros());
+    	MainTabelaFinanceiro.setItems(listaDeFinanceiros());
 	}
 	
 	private ObservableList<Financeiro> listaDeFinanceiros() throws Exception {
@@ -86,13 +84,13 @@ public class ListarFinanceiroController implements Initializable{
 		ManterFinanceiroController cc = (ManterFinanceiroController) loader.getController();
 		
 		// Verifico se é uma edição de Financeiro ou cadastro
-		if(MainTabelaFinanceiros.getSelectionModel().getSelectedItem() != null) {
+		if(MainTabelaFinanceiro.getSelectionModel().getSelectedItem() != null) {
 			
 			// Crio uma nova instancia do objeto Financeiro
 			Financeiro c = new Financeiro();
 			
 			// Atribuo o item selecionado ao Financeiro
-			c = MainTabelaFinanceiros.getSelectionModel().getSelectedItem();
+			c = MainTabelaFinanceiro.getSelectionModel().getSelectedItem();
 			
 			// Chamada da função que vai atribuir os valores para a visualização do Financeiro já cadastrado
 			cc.editarFinanceiro(c);
@@ -116,8 +114,8 @@ public class ListarFinanceiroController implements Initializable{
 	@FXML
 	public void excluirFinanceiro() throws Exception {
 		FinanceiroDAO cDAO = new FinanceiroDAO();
-		if(MainTabelaFinanceiros.getSelectionModel().getSelectedItem() != null) {
-			Financeiro c = MainTabelaFinanceiros.getSelectionModel().getSelectedItem();
+		if(MainTabelaFinanceiro.getSelectionModel().getSelectedItem() != null) {
+			Financeiro c = MainTabelaFinanceiro.getSelectionModel().getSelectedItem();
 			cDAO.remover(c);
 			ListarFinanceiro();
 		}

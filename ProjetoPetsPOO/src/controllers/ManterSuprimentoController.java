@@ -14,19 +14,13 @@ public class ManterSuprimentoController implements Initializable {
 	Suprimento suprimentoAuxiliar = new Suprimento();
 	
 	@FXML
-	public TextField CadPessoaTxtFieldNome;
+	public TextField CadSuprimentoTxtAreaTipo;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldCpf;
+	public TextArea CadSuprimentoTxtAreaOrigem;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldTelefone;
-	
-	@FXML
-	public TextField CadPessoaTxtFieldCep;
-	
-	@FXML
-	public TextField CadPessoaTxtFieldNumero;
+	public TextArea CadSuprimentoTxtAreaDescricao;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -36,18 +30,16 @@ public class ManterSuprimentoController implements Initializable {
 	
 	@FXML
 	public void manterSuprimento() throws Exception {
-		SuprimentoDAO cDAO = new SuprimentoDAO();
-		suprimentoAuxiliar.setPesNome(CadPessoaTxtFieldNome.getText());
-		suprimentoAuxiliar.setPesCpf(CadPessoaTxtFieldCpf.getText());
-		suprimentoAuxiliar.setPesTelefone(CadPessoaTxtFieldTelefone.getText());
-		suprimentoAuxiliar.setPesCep(CadPessoaTxtFieldCep.getText());
-		suprimentoAuxiliar.setPesNumero(CadPessoaTxtFieldNumero.getText());
+		SuprimentoDAO sDAO = new SuprimentoDAO();
+		suprimentoAuxiliar.setSupTipo(CadSuprimentoTxtAreaTipo.getText());
+		suprimentoAuxiliar.setSupOrigem(CadSuprimentoTxtAreaOrigem.getText());
+		suprimentoAuxiliar.setSupDescricao(CadSuprimentoTxtAreaDescricao.getText());
 		
-		if(suprimentoAuxiliar.getPesId() != null) {	
-			cDAO.alterar(suprimentoAuxiliar);
+		if(suprimentoAuxiliar.getSupId() != null) {	
+			sDAO.alterar(suprimentoAuxiliar);
 		}
 		else{
-			cDAO.inserir(suprimentoAuxiliar);
+			sDAO.inserir(suprimentoAuxiliar);
 		}
 		
 		fecharTelaCadastroSuprimento();
@@ -55,22 +47,19 @@ public class ManterSuprimentoController implements Initializable {
 	
 	@FXML
 	public void fecharTelaCadastroSuprimento() throws Exception {
-		Stage stage = (Stage) CadPessoaTxtFieldNome.getScene().getWindow();
+		Stage stage = (Stage) CadSuprimentoTxtAreaTipo.getScene().getWindow();
 		stage.close();
 	}
 	
 	@FXML
-	public void editarSuprimento(Suprimento c) {
+	public void editarSuprimento(Suprimento s) {
 		// Atribuo o suprimento que foi passado por parametro a um obejto suprimento auxiliar que existe como atributo dessa classe
-		suprimentoAuxiliar = c;
+		suprimentoAuxiliar = s;
 		
 		// Atribuo o valor do nome do suprimento ao seu respectivo textField
-		CadPessoaTxtFieldNome.textProperty().setValue(c.getPesNome().getValue());
-		CadPessoaTxtFieldCpf.textProperty().setValue(c.getPesCpf().getValue());
-		CadPessoaTxtFieldTelefone.textProperty().setValue(c.getPesTelefone().getValue());
-		CadPessoaTxtFieldCep.textProperty().setValue(c.getPesCep());
-		CadPessoaTxtFieldNumero.textProperty().setValue(c.getPesNumero());
-		
+		CadSuprimentoTxtAreaTipo.textProperty().setValue(s.getSupTipo().getValue());
+		CadSuprimentoTxtAreaOrigem.textProperty().setValue(s.getSupOrigem().getValue());
+		CadSuprimentoTxtAreaDescricao.textProperty().setValue(s.getSupDescricao().getValue());
 		
 	}
 }

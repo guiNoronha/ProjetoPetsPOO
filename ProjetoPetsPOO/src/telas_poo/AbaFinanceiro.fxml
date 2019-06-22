@@ -13,9 +13,8 @@
       <children>
          <TableView fx:id="MainTabelaFinanceiro" layoutX="45.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
             <columns>
-               <TableColumn fx:id="MainColunaFinanceiroData" prefWidth="272.0" text="Data" />
                <TableColumn fx:id="MainColunaFinanceiroCategoria" prefWidth="150.0" text="Categoria" />
-               <TableColumn fx:id="MainColunaFinanceiroDescricao" prefWidth="150.0" text="Descrição" />
+               <TableColumn fx:id="MainColunaFinanceiroDescricao" prefWidth="272.0" text="Descrição" />
             </columns>
             <columnResizePolicy>
                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -13,7 +13,7 @@
       <Label fx:id="CadFinanceiroLblData" layoutX="16.0" layoutY="38.0" text="Data" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
       <DatePicker fx:id="CadFinanceiroDatePickerData" layoutX="25.0" layoutY="52.0" AnchorPane.topAnchor="55.0" />
       <Label fx:id="CadFinanceiroLblCategoria" layoutX="16.0" layoutY="93.0" text="Categoria" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
-      <ChoiceBox fx:id="CadFinanceiroBoxCategoria" layoutX="25.0" layoutY="107.0" prefHeight="25.0" prefWidth="174.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="110.0" />
+      <TextField fx:id="CadFinanceiroCategoria" layoutX="25.0" layoutY="107.0" prefHeight="25.0" prefWidth="174.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="110.0" />
       <Label fx:id="CadFinanceiroLblValor" layoutX="16.0" layoutY="215.0" text="Valor" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="145.0" />
       <TextField fx:id="CadFinanceiroTxtFieldValor" layoutX="14.0" layoutY="239.0" prefHeight="25.0" prefWidth="174.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="401.0" AnchorPane.topAnchor="165.0" />
       <Label fx:id="CadFinanceiroLblDescricao" layoutX="245.0" layoutY="35.0" text="Descrição" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="35.0" />
