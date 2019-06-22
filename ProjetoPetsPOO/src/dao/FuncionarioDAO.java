@@ -17,12 +17,15 @@ public class FuncionarioDAO {
     connection = new Conexao().getConnection();
   }
 
-  public Funcionario inserir(Funcionario f) {
-    String sql = "INSERT INTO funcionario (func_salario, pes_id) VALUES (?, ?);";
+  public Funcionario inserir(Funcionario f) throws Exception {
+    String sql = "INSERT INTO funcionario (fun_salario, pes_id) VALUES (?, ?);";
     try {
+      PessoaDAO pDAO = new PessoaDAO();
+      f = (Funcionario) pDAO.inserir((Pessoa) f);
+    	
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setFloat(1, f.getFuncSalario());
+      stmt.setString(1, f.getFuncSalario().getValue());
       stmt.setInt(2, f.getPesId());
 
       stmt.execute();
@@ -56,15 +59,14 @@ public class FuncionarioDAO {
 
         Funcionario funcionario = new Funcionario();
 
-        funcionario.setFuncId(rs.getInt("func_id"));
-        funcionario.setFuncSalario(rs.getFloat("func_salario"));
+        funcionario.setFuncId(rs.getInt("fun_id"));
+        funcionario.setFuncSalario(rs.getString("fun_salario"));
         
         funcionario.setPesId(rs.getInt("pes_id"));
         funcionario.setPesNome(rs.getString("pes_nome"));
         funcionario.setPesCep(rs.getString("pes_cep"));
         funcionario.setPesTelefone(rs.getString("pes_telefone"));
         funcionario.setPesCpf(rs.getString("pes_cpf"));
-        funcionario.setPesEmail(rs.getString("pes_email"));
         funcionario.setPesNumero(rs.getString("pes_numero"));
 
         funcionarios.add(funcionario);
@@ -81,7 +83,7 @@ public class FuncionarioDAO {
 
   public void remover(Funcionario f) {
     try {
-      String sql = "DELETE FROM funcionario WHERE func_id = ?";
+      String sql = "DELETE FROM funcionario WHERE fun_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql);
       stmt.setInt(1, f.getFuncId());
       stmt.execute();
@@ -92,13 +94,16 @@ public class FuncionarioDAO {
     }
   }
 
-  public void alterar(Funcionario f) {
-    String sql = "UPDATE funcionario SET func_salario = ?, pes_id = ? WHERE func_id = ?";
+  public void alterar(Funcionario f) throws Exception {
+    String sql = "UPDATE funcionario SET fun_salario = ?, pes_id = ? WHERE fun_id = ?";
 
     try {
+      PessoaDAO pDAO = new PessoaDAO();
+      f = (Funcionario) pDAO.alterar((Pessoa) f);
+        
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      stmt.setFloat(1, f.getFuncSalario());
+      stmt.setString(1, f.getFuncSalario().getValue());
       stmt.setInt(2, f.getPesId());
       stmt.setInt(3, f.getFuncId());
 
@@ -110,12 +115,12 @@ public class FuncionarioDAO {
     }
   }
 
-  public Funcionario buscar(Integer func_id) throws Exception {
+  public Funcionario buscar(Integer fun_id) throws Exception {
     try {
-      String sql = "SELECT * FROM funcionario where func_id = ?";
+      String sql = "SELECT * FROM funcionario where fun_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setInt(1, func_id);
+      stmt.setInt(1, fun_id);
       stmt.execute();
 
       ResultSet rs = stmt.executeQuery();
@@ -123,15 +128,14 @@ public class FuncionarioDAO {
       Funcionario funcionario = new Funcionario();
 
       while (rs.next()) {
-        funcionario.setFuncId(rs.getInt("func_id"));
-        funcionario.setFuncSalario(rs.getFloat("func_salario"));
+        funcionario.setFuncId(rs.getInt("fun_id"));
+        funcionario.setFuncSalario(rs.getString("fun_salario"));
 
         funcionario.setPesId(rs.getInt("pes_id"));
         funcionario.setPesNome(rs.getString("pes_nome"));
         funcionario.setPesCep(rs.getString("pes_cep"));
         funcionario.setPesTelefone(rs.getString("pes_telefone"));
         funcionario.setPesCpf(rs.getString("pes_cpf"));
-        funcionario.setPesEmail(rs.getString("pes_email"));
         funcionario.setPesNumero(rs.getString("pes_numero"));
 
       }

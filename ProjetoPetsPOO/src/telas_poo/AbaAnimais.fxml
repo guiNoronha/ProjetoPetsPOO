@@ -10,10 +10,9 @@
 	 <children>
         <TableView fx:id="MainTabelaAnimais" layoutX="45.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
           <columns>
-          	  <TableColumn fx:id="MainColunaAnimaisNome" prefWidth="207.0" text="Nome" />
-              <TableColumn fx:id="MainColunaAnimaisEspecie" prefWidth="200.0" text="Espécie" />
-              <TableColumn fx:id="MainColunaAnimaisRaca" prefWidth="150.0" text="Raça" />
-              <TableColumn fx:id="MainColunaAnimaisStatus" prefWidth="200.0" text="Status" />
+          	  <TableColumn fx:id="MainColunaAnimaisNome" prefWidth="253.0" text="Nome" />
+              <TableColumn fx:id="MainColunaAnimaisEspecie" prefWidth="252.0" text="Espécie" />
+              <TableColumn fx:id="MainColunaAnimaisRaca" prefWidth="252.0" text="Raça" />
           </columns>
         </TableView>
         <Button fx:id="MainBtnCadastrarAnimais" layoutX="483.0" layoutY="312.0" mnemonicParsing="false" onAction="#manterCadastroAnimal" prefHeight="26.0" prefWidth="85.0" text="Manter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" />

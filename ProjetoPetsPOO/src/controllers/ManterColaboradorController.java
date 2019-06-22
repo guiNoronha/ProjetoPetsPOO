@@ -78,8 +78,8 @@ public class ManterColaboradorController implements Initializable {
 		CadColaboradorTxtFieldTelefone.textProperty().setValue(c.getPesTelefone().getValue());
 		CadColaboradorTxtFieldCep.textProperty().setValue(c.getPesCep());
 		CadColaboradorTxtFieldNumero.textProperty().setValue(c.getPesNumero());
-		CadColaboradorTxtFieldOcupacao.textProperty().setValue(c.getColFuncao());
-		CadColaboradorTxtFieldNascimento.textProperty().setValue(c.getColNascimento());
+		CadColaboradorTxtFieldOcupacao.textProperty().setValue(c.getColFuncao().getValue());
+		CadColaboradorTxtFieldNascimento.textProperty().setValue(c.getColNascimento().toString());
 		
 		
 	}

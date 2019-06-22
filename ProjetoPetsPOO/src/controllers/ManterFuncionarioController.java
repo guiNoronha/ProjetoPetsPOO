@@ -48,8 +48,7 @@ public class ManterFuncionarioController implements Initializable {
 		funcionarioAuxiliar.setPesTelefone(CadFuncionarioTxtFieldTelefone.getText());
 		funcionarioAuxiliar.setPesCep(CadFuncionarioTxtFieldCep.getText());
 		funcionarioAuxiliar.setPesNumero(CadFuncionarioTxtFieldNumero.getText());
-		funcionarioAuxiliar.setFuncOcupacao(CadFuncionarioTxtFieldOcupacao.getText());
-		funcionarioAuxiliar.setFuncSalario(Float.valueOf(CadFuncionarioTxtFieldSalario.getText()));
+		funcionarioAuxiliar.setFuncSalario(CadFuncionarioTxtFieldSalario.getText());
 		
 		if(funcionarioAuxiliar.getPesId() != null) {	
 			fDAO.alterar(funcionarioAuxiliar);
@@ -78,8 +77,7 @@ public class ManterFuncionarioController implements Initializable {
 		CadFuncionarioTxtFieldTelefone.textProperty().setValue(f.getPesTelefone().getValue());
 		CadFuncionarioTxtFieldCep.textProperty().setValue(f.getPesCep());
 		CadFuncionarioTxtFieldNumero.textProperty().setValue(f.getPesNumero());
-		CadFuncionarioTxtFieldOcupacao.textProperty().setValue(f.getFuncOcupacao());
-		CadFuncionarioTxtFieldSalario.textProperty().setValue(Float.toString(f.getFuncSalario()));		
+		CadFuncionarioTxtFieldSalario.textProperty().setValue(f.getFuncSalario().getValue());
 		
 	}
 }

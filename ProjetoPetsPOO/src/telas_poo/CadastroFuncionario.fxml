@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="CadFuncionarioAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="CadFuncionarioAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManterFuncionarioController">
    <children>
       <Label fx:id="CadFuncionarioLblNome" layoutX="16.0" layoutY="38.0" text="Nome" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
       <TextField fx:id="CadFuncionarioTxtFieldNome" layoutX="14.0" layoutY="55.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="55.0" />
@@ -17,11 +17,9 @@
       <TextField fx:id="CadFuncionarioTxtFieldCep" layoutX="14.0" layoutY="239.0" prefHeight="25.0" prefWidth="307.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="165.0" />
       <Label fx:id="CadFuncionarioLblNumero" layoutX="300.0" layoutY="145.0" text="Número" AnchorPane.rightAnchor="206.0" />
       <TextField fx:id="CadFuncionarioTxtFieldNumero" layoutX="349.0" layoutY="165.0" prefHeight="25.0" prefWidth="226.0" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="25.0" />
-      <Label fx:id="CadFuncionarioLblOcupacao" layoutX="110.0" layoutY="245.0" text="Ocupação" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="200.0" />
-      <TextField fx:id="CadFuncionarioTxtFieldOcupacao" layoutX="76.0" layoutY="325.0" prefHeight="25.0" prefWidth="275.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="220.0" />
-      <Label fx:id="CadFuncionarioLblSalario" layoutX="317.0" layoutY="200.0" text="Salário" />
-      <TextField fx:id="CadFuncionarioTxtFieldSalario" layoutX="337.0" layoutY="300.0" prefHeight="25.0" prefWidth="257.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="220.0" />
-      <Button fx:id="CadFuncionarioBtnCancelar" mnemonicParsing="false" prefHeight="26.0" prefWidth="83.0" text="Cancelar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="117.0" />
-      <Button fx:id="CadFuncionarioBtnSalvar" layoutX="523.0" layoutY="350.0" mnemonicParsing="false" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+      <Label fx:id="CadFuncionarioLblSalario" layoutX="26.0" layoutY="200.0" text="Salário" />
+      <TextField fx:id="CadFuncionarioTxtFieldSalario" layoutX="25.0" layoutY="219.0" prefHeight="25.0" prefWidth="257.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="219.0" />
+      <Button fx:id="CadFuncionarioBtnCancelar" mnemonicParsing="false" onAction="#fecharTelaCadastroFuncionario" prefHeight="26.0" prefWidth="83.0" text="Cancelar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="117.0" />
+      <Button fx:id="CadFuncionarioBtnSalvar" layoutX="523.0" layoutY="350.0" mnemonicParsing="false" onAction="#manterFuncionario" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
    </children>
 </AnchorPane>

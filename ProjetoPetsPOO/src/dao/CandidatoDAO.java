@@ -67,7 +67,6 @@ public class CandidatoDAO {
         candidato.setPesCep(rs.getString("pes_cep"));
         candidato.setPesTelefone(rs.getString("pes_telefone"));
         candidato.setPesCpf(rs.getString("pes_cpf"));
-        candidato.setPesEmail(rs.getString("pes_email"));
         candidato.setPesNumero(rs.getString("pes_numero"));
         candidatos.add(candidato);
       }
@@ -135,7 +134,6 @@ public class CandidatoDAO {
           candidato.setPesCep(rs.getString("pes_cep"));
           candidato.setPesTelefone(rs.getString("pes_telefone"));
           candidato.setPesCpf(rs.getString("pes_cpf"));
-          candidato.setPesEmail(rs.getString("pes_email"));
           candidato.setPesNumero(rs.getString("pes_numero"));
       }
 

@@ -26,7 +26,7 @@ public class ColaboradorDAO {
       
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-      stmt.setBoolean(1, c.getColFuncao());
+      stmt.setString(1, c.getColFuncao().getValue());
       stmt.setInt(2, c.getPesId());
 
       stmt.execute();
@@ -61,13 +61,12 @@ public class ColaboradorDAO {
         Colaborador colaborador = new Colaborador();
 
         colaborador.setColId(rs.getInt("col_id"));
-        colaborador.setColFuncao(rs.getBoolean("col_funcao"));
+        colaborador.setColFuncao(rs.getString("col_funcao"));
         colaborador.setPesId(rs.getInt("pes_id"));
         colaborador.setPesNome(rs.getString("pes_nome"));
         colaborador.setPesCep(rs.getString("pes_cep"));
         colaborador.setPesTelefone(rs.getString("pes_telefone"));
         colaborador.setPesCpf(rs.getString("pes_cpf"));
-        colaborador.setPesEmail(rs.getString("pes_email"));
         colaborador.setPesNumero(rs.getString("pes_numero"));
         colaboradors.add(colaborador);
       }
@@ -103,7 +102,7 @@ public class ColaboradorDAO {
       
       PreparedStatement stmt = connection.prepareStatement(sql);
 
-      stmt.setBoolean(1, c.getColFuncao());
+      stmt.setString(1, c.getColFuncao().getValue());
       stmt.setInt(2, c.getPesId());
       stmt.setInt(3, c.getColId());
 
@@ -129,13 +128,12 @@ public class ColaboradorDAO {
 
       while (rs.next()) {
     	  colaborador.setColId(rs.getInt("col_id"));
-          colaborador.setColFuncao(rs.getBoolean("col_funcao"));
+          colaborador.setColFuncao(rs.getString("col_funcao"));
           colaborador.setPesId(rs.getInt("pes_id"));
           colaborador.setPesNome(rs.getString("pes_nome"));
           colaborador.setPesCep(rs.getString("pes_cep"));
           colaborador.setPesTelefone(rs.getString("pes_telefone"));
           colaborador.setPesCpf(rs.getString("pes_cpf"));
-          colaborador.setPesEmail(rs.getString("pes_email"));
           colaborador.setPesNumero(rs.getString("pes_numero"));
       }
 
