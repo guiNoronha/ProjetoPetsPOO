@@ -14,19 +14,25 @@ public class ManterColaboradorController implements Initializable {
 	Colaborador colaboradorAuxiliar = new Colaborador();
 	
 	@FXML
-	public TextField CadPessoaTxtFieldNome;
+	public TextField CadColaboradorTxtFieldNome;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldCpf;
+	public TextField CadColaboradorTxtFieldCpf;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldTelefone;
+	public TextField CadColaboradorTxtFieldTelefone;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldCep;
+	public TextField CadColaboradorTxtFieldCep;
 	
 	@FXML
-	public TextField CadPessoaTxtFieldNumero;
+	public TextField CadColaboradorTxtFieldNumero;
+	
+	@FXML
+	public TextField CadColaboradorTxtFieldOcupacao;
+	
+	@FXML
+	public TextField CadColaboradorTxtFieldNascimento;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -37,11 +43,13 @@ public class ManterColaboradorController implements Initializable {
 	@FXML
 	public void manterColaborador() throws Exception {
 		ColaboradorDAO cDAO = new ColaboradorDAO();
-		colaboradorAuxiliar.setPesNome(CadPessoaTxtFieldNome.getText());
-		colaboradorAuxiliar.setPesCpf(CadPessoaTxtFieldCpf.getText());
-		colaboradorAuxiliar.setPesTelefone(CadPessoaTxtFieldTelefone.getText());
-		colaboradorAuxiliar.setPesCep(CadPessoaTxtFieldCep.getText());
-		colaboradorAuxiliar.setPesNumero(CadPessoaTxtFieldNumero.getText());
+		colaboradorAuxiliar.setPesNome(CadColaboradorTxtFieldNome.getText());
+		colaboradorAuxiliar.setPesCpf(CadColaboradorTxtFieldCpf.getText());
+		colaboradorAuxiliar.setPesTelefone(CadColaboradorTxtFieldTelefone.getText());
+		colaboradorAuxiliar.setPesCep(CadColaboradorTxtFieldCep.getText());
+		colaboradorAuxiliar.setPesNumero(CadColaboradorTxtFieldNumero.getText());
+		colaboradorAuxiliar.setColFuncao(CadColaboradorTxtFieldOcupacao.getText());
+		colaboradorAuxiliar.setColNascimento(CadColaboradorTxtFieldNascimento.getText());
 		
 		if(colaboradorAuxiliar.getPesId() != null) {	
 			cDAO.alterar(colaboradorAuxiliar);
@@ -55,7 +63,7 @@ public class ManterColaboradorController implements Initializable {
 	
 	@FXML
 	public void fecharTelaCadastroColaborador() throws Exception {
-		Stage stage = (Stage) CadPessoaTxtFieldNome.getScene().getWindow();
+		Stage stage = (Stage) CadColaboradorTxtFieldNome.getScene().getWindow();
 		stage.close();
 	}
 	
@@ -65,11 +73,13 @@ public class ManterColaboradorController implements Initializable {
 		colaboradorAuxiliar = c;
 		
 		// Atribuo o valor do nome do colaborador ao seu respectivo textField
-		CadPessoaTxtFieldNome.textProperty().setValue(c.getPesNome().getValue());
-		CadPessoaTxtFieldCpf.textProperty().setValue(c.getPesCpf().getValue());
-		CadPessoaTxtFieldTelefone.textProperty().setValue(c.getPesTelefone().getValue());
-		CadPessoaTxtFieldCep.textProperty().setValue(c.getPesCep());
-		CadPessoaTxtFieldNumero.textProperty().setValue(c.getPesNumero());
+		CadColaboradorTxtFieldNome.textProperty().setValue(c.getPesNome().getValue());
+		CadColaboradorTxtFieldCpf.textProperty().setValue(c.getPesCpf().getValue());
+		CadColaboradorTxtFieldTelefone.textProperty().setValue(c.getPesTelefone().getValue());
+		CadColaboradorTxtFieldCep.textProperty().setValue(c.getPesCep());
+		CadColaboradorTxtFieldNumero.textProperty().setValue(c.getPesNumero());
+		CadColaboradorTxtFieldOcupacao.textProperty().setValue(c.getColFuncao());
+		CadColaboradorTxtFieldNascimento.textProperty().setValue(c.getColNascimento());
 		
 		
 	}

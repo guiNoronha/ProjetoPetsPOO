@@ -30,7 +30,7 @@ import javafx.util.Callback;
 public class ListarCandidatoController implements Initializable{
 	
 //	@FXML
-//	public TextField CadCandidatoTxtFieldNome;
+	public TextField CadCandidatoTxtFieldNome;
 	
 	@FXML
     private TableView<Candidato> MainTabelaCandidatos = new TableView<Candidato>();

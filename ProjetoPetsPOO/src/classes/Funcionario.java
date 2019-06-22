@@ -7,7 +7,8 @@ import javafx.beans.value.ObservableValue;
 public class Funcionario extends Pessoa {
 	
 	private Integer func_id;
-	private Float func_salario;
+	private final SimpleStringProperty func_ocupacao = new SimpleStringProperty();
+	private final SimpleStringProperty func_salario = new SimpleStringProperty();
 
 	public Integer getFuncId() {
 		return func_id;
@@ -16,10 +17,17 @@ public class Funcionario extends Pessoa {
 		this.func_id= func_id;
 	}
 
-	public Float getFuncSalario() {
+	public ObservableValue<String> getFuncSalario() {
 		return func_salario;
 	}	
-	public void setFuncSalario(Float func_salario) {
-		this.func_salario = func_salario;
+	public void setFuncSalario(String func_salario) {
+		this.func_salario.set(func_salario);
+	}
+	
+	public ObservableValue<String> getFuncOcupacao() {
+		return func_ocupacao;
+	}	
+	public void setFuncOcupacao(String func_ocupacao) {
+		this.func_ocupacao.set(func_ocupacao);
 	}
 }

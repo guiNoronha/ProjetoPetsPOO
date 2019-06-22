@@ -62,7 +62,7 @@ public class ListarColaboradorController implements Initializable{
                 ObservableValue<String>>() {
     	 
 		public ObservableValue<String> call(CellDataFeatures<Colaborador, String> data){  
-			return data.getValue().getPesTelefone();
+			return data.getValue().getColFuncao();
 		}  
 		});
     	

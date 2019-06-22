@@ -30,33 +30,44 @@ import javafx.util.Callback;
 public class ListarFuncionarioController implements Initializable{
 	
 	@FXML
+	public TextField CadFuncionarioTxtFieldNome;
+	
+	@FXML
     private TableView<Funcionario> MainTabelaFuncionarios = new TableView<Funcionario>();
     @FXML
-    private TableColumn<Funcionario, String> MainColunaFuncionarioCategoria;
+    private TableColumn<Funcionario, String> MainColunaFuncionariosNome;
 	@FXML
-    private TableColumn<Funcionario, String> MainColunaFuncionarioDescricao;
+    private TableColumn<Funcionario, String> MainColunaFuncionariosCpf;
 	@FXML
-    private TableColumn<Funcionario, String> MainColunaFuncionarioValor;
+    private TableColumn<Funcionario, String> MainColunaFuncionariosSalario;
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	
-//		MainColunaFuncionarioCategoria.setCellValueFactory(new Callback<CellDataFeatures<Funcionario, String>, 
-//                ObservableValue<String>>() {
-//    	 
-//		public ObservableValue<String> call(CellDataFeatures<Funcionario, String> data){  
-//			return data.getValue().getFinCategoria();
-//		}  
-//		});
-//		
-//		
-//		MainColunaFuncionarioDescricao.setCellValueFactory(new Callback<CellDataFeatures<Funcionario, String>, 
-//                ObservableValue<String>>() {
-//    	 
-//		public ObservableValue<String> call(CellDataFeatures<Funcionario, String> data){  
-//			return data.getValue().getFinDescricao();
-//		}  
-//		});
+    	MainColunaFuncionariosNome.setCellValueFactory(new Callback<CellDataFeatures<Funcionario, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Funcionario, String> data){  
+			return data.getValue().getPesNome();
+		}  
+		});
+		
+		
+    	MainColunaFuncionariosCpf.setCellValueFactory(new Callback<CellDataFeatures<Funcionario, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Funcionario, String> data){  
+			return data.getValue().getPesCpf();
+		}  
+		});
+    	
+    	MainColunaFuncionariosSalario.setCellValueFactory(new Callback<CellDataFeatures<Funcionario, String>, 
+                ObservableValue<String>>() {
+    	 
+		public ObservableValue<String> call(CellDataFeatures<Funcionario, String> data){  
+			return data.getValue().getFuncSalario();
+		}  
+		});
     	
 		try {
 			ListarFuncionario();

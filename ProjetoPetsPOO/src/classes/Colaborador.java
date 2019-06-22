@@ -1,9 +1,13 @@
 package classes;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+
 public class Colaborador extends Pessoa{
 	
 	private Integer col_id;
-	private boolean col_funcao;
+	private final SimpleStringProperty col_funcao = new SimpleStringProperty();
+	private final SimpleStringProperty col_nascimento = new SimpleStringProperty();
 	
 	public Integer getColId() {
 		return col_id;
@@ -14,11 +18,19 @@ public class Colaborador extends Pessoa{
 	}
 
 
-	public boolean getColFuncao() {
+	public ObservableValue<String> getColFuncao() {
 		return col_funcao;
 	}
 	
-	public void setColFuncao(boolean col_funcao) {
-		this.col_funcao = col_funcao;
+	public void setColFuncao(String col_funcao) {
+		this.col_funcao.set(col_funcao);
+	}
+	
+	public ObservableValue<String> getColNascimento() {
+		return col_nascimento;
+	}
+	
+	public void setColNascimento(String col_nascimento) {
+		this.col_nascimento.set(col_nascimento);
 	}
 }
