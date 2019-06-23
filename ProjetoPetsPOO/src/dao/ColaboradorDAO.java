@@ -68,6 +68,7 @@ public class ColaboradorDAO {
         colaborador.setPesTelefone(rs.getString("pes_telefone"));
         colaborador.setPesCpf(rs.getString("pes_cpf"));
         colaborador.setPesNumero(rs.getString("pes_numero"));
+        colaborador.setPesSenha(rs.getString("pes_senha"));
         colaboradors.add(colaborador);
       }
 

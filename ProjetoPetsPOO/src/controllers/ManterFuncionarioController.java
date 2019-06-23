@@ -34,6 +34,9 @@ public class ManterFuncionarioController implements Initializable {
 	@FXML
 	public TextField CadFuncionarioTxtFieldSalario;
 	
+	@FXML
+	public TextField CadFuncionarioTxtFieldSenha;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -50,6 +53,7 @@ public class ManterFuncionarioController implements Initializable {
 		funcionarioAuxiliar.setPesNumero(CadFuncionarioTxtFieldNumero.getText());
 		funcionarioAuxiliar.setPesTipo(1);
 		funcionarioAuxiliar.setFuncSalario(CadFuncionarioTxtFieldSalario.getText());
+		funcionarioAuxiliar.setPesSenha(CadFuncionarioTxtFieldSenha.getText());
 		
 		if(funcionarioAuxiliar.getPesId() != null) {	
 			fDAO.alterar(funcionarioAuxiliar);
@@ -79,6 +83,7 @@ public class ManterFuncionarioController implements Initializable {
 		CadFuncionarioTxtFieldCep.textProperty().setValue(f.getPesCep());
 		CadFuncionarioTxtFieldNumero.textProperty().setValue(f.getPesNumero());
 		CadFuncionarioTxtFieldSalario.textProperty().setValue(f.getFuncSalario().getValue());
+		CadFuncionarioTxtFieldSenha.textProperty().setValue(f.getPesSenha());
 		
 	}
 }

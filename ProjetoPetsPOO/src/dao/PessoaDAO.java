@@ -18,7 +18,7 @@ public class PessoaDAO {
   }
 
   public Pessoa inserir(Pessoa p) {
-    String sql = "INSERT INTO pessoa (pes_nome, pes_cep, pes_telefone, pes_cpf, pes_numero, pes_tipo) VALUES (?, ?, ?, ?, ?, ?);";
+    String sql = "INSERT INTO pessoa (pes_nome, pes_cep, pes_telefone, pes_cpf, pes_numero, pes_tipo, pes_senha) VALUES (?, ?, ?, ?, ?, ?, ?);";
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -28,6 +28,7 @@ public class PessoaDAO {
       stmt.setString(4, p.getPesCpf().getValue());
       stmt.setString(5, p.getPesNumero());
       stmt.setInt(6, p.getPesTipo());
+      stmt.setString(7, p.getPesSenha());
 
       stmt.execute();
 
@@ -65,6 +66,7 @@ public class PessoaDAO {
         pessoa.setPesTelefone(rs.getString("pes_telefone"));
         pessoa.setPesCpf(rs.getString("pes_cpf"));
         pessoa.setPesNumero(rs.getString("pes_numero"));
+        pessoa.setPesSenha(rs.getString("pes_senha"));
         pessoas.add(pessoa);
         
       }
@@ -92,7 +94,7 @@ public class PessoaDAO {
   }
 
   public Pessoa alterar(Pessoa p) {
-    String sql = "UPDATE pessoa SET pes_nome = ?, pes_cep = ?, pes_telefone = ?, pes_cpf = ?, pes_numero = ? WHERE pes_id = ?";
+    String sql = "UPDATE pessoa SET pes_nome = ?, pes_cep = ?, pes_telefone = ?, pes_cpf = ?, pes_numero = ?, pes_senha = ? WHERE pes_id = ?";
 
     try {
       PreparedStatement stmt = connection.prepareStatement(sql);
@@ -102,7 +104,8 @@ public class PessoaDAO {
       stmt.setString(3, p.getPesTelefone().getValue());
       stmt.setString(4, p.getPesCpf().getValue());
       stmt.setString(5, p.getPesNumero());
-      stmt.setInt(6, p.getPesId());
+      stmt.setString(6, p.getPesSenha());
+      stmt.setInt(7, p.getPesId());
       
       stmt.execute();
       stmt.close();
@@ -132,6 +135,7 @@ public class PessoaDAO {
         pessoa.setPesTelefone(rs.getString("pes_telefone"));
         pessoa.setPesCpf(rs.getString("pes_cpf"));
         pessoa.setPesNumero(rs.getString("pes_numero"));
+        pessoa.setPesSenha(rs.getString("pes_senha"));
       }
 
       rs.close();
@@ -165,6 +169,7 @@ public class PessoaDAO {
 	        pessoa.setPesCpf(rs.getString("pes_cpf"));
 	        pessoa.setPesNumero(rs.getString("pes_numero"));
 	        pessoa.setPesTipo(rs.getInt("pes_tipo"));
+	        pessoa.setPesSenha(rs.getString("pes_senha"));
 	      }
 
 	      rs.close();

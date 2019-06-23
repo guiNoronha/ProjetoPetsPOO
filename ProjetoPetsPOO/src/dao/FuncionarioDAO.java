@@ -68,6 +68,7 @@ public class FuncionarioDAO {
         funcionario.setPesTelefone(rs.getString("pes_telefone"));
         funcionario.setPesCpf(rs.getString("pes_cpf"));
         funcionario.setPesNumero(rs.getString("pes_numero"));
+        funcionario.setPesSenha(rs.getString("pes_senha"));
 
         funcionarios.add(funcionario);
       }

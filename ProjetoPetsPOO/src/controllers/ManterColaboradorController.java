@@ -32,6 +32,9 @@ public class ManterColaboradorController implements Initializable {
 	public TextField CadColaboradorTxtFieldOcupacao;
 	
 	@FXML
+	public TextField CadColaboradorTxtFieldSenha;
+	
+	@FXML
 	public TextField CadColaboradorTxtFieldNascimento;
 	
 	@Override
@@ -49,6 +52,7 @@ public class ManterColaboradorController implements Initializable {
 		colaboradorAuxiliar.setPesCep(CadColaboradorTxtFieldCep.getText());
 		colaboradorAuxiliar.setPesNumero(CadColaboradorTxtFieldNumero.getText());
 		colaboradorAuxiliar.setColFuncao(CadColaboradorTxtFieldOcupacao.getText());
+		colaboradorAuxiliar.setPesSenha(CadColaboradorTxtFieldSenha.getText());
 		colaboradorAuxiliar.setPesTipo(2);
 		
 		if(colaboradorAuxiliar.getPesId() != null) {	
@@ -79,6 +83,7 @@ public class ManterColaboradorController implements Initializable {
 		CadColaboradorTxtFieldCep.textProperty().setValue(c.getPesCep());
 		CadColaboradorTxtFieldNumero.textProperty().setValue(c.getPesNumero());
 		CadColaboradorTxtFieldOcupacao.textProperty().setValue(c.getColFuncao().getValue());
+		CadColaboradorTxtFieldSenha.textProperty().setValue(c.getPesSenha());
 		
 		
 	}
