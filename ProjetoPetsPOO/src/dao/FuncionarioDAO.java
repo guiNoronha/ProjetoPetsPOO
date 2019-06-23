@@ -53,7 +53,7 @@ public class FuncionarioDAO {
       PreparedStatement stmt = connection.prepareStatement(sql);
       ResultSet rs = stmt.executeQuery();
 
-      ArrayList<Funcionario> funcionarios = new ArrayList();
+      ArrayList<Funcionario> funcionarios = new ArrayList();//
 
       while (rs.next()) {
 
