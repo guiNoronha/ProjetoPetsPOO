@@ -48,6 +48,7 @@ public class ManterFuncionarioController implements Initializable {
 		funcionarioAuxiliar.setPesTelefone(CadFuncionarioTxtFieldTelefone.getText());
 		funcionarioAuxiliar.setPesCep(CadFuncionarioTxtFieldCep.getText());
 		funcionarioAuxiliar.setPesNumero(CadFuncionarioTxtFieldNumero.getText());
+		funcionarioAuxiliar.setPesTipo(1);
 		funcionarioAuxiliar.setFuncSalario(CadFuncionarioTxtFieldSalario.getText());
 		
 		if(funcionarioAuxiliar.getPesId() != null) {	

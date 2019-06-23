@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableRow;
@@ -28,6 +29,10 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ListarColaboradorController implements Initializable{
+	@FXML
+    public Button MainBtnCadastrarColaboradores;
+	@FXML
+    public Button MainBtnExcluirColaboradores;
 	
 	@FXML
     private TableView<Colaborador> MainTabelaColaboradores = new TableView<Colaborador>();
@@ -40,6 +45,12 @@ public class ListarColaboradorController implements Initializable{
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	Context c = Context.getInstance();
+    	Pessoa usuario = c.getUsuarioAtual();
+    	if(usuario.getPesTipo() != 1) {
+    		MainBtnCadastrarColaboradores.setDisable(true);
+    		MainBtnExcluirColaboradores.setDisable(true);
+    	}
     	
 		MainColunaColaboradoresNome.setCellValueFactory(new Callback<CellDataFeatures<Colaborador, String>, 
                 ObservableValue<String>>() {

@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
 		pes.setPesSenha(LoginTxtFieldSenha.getText());
 		pes = pesDAO.buscarDadosLogin(pes);
 		
-//		if(pes.getPesId() != null) {
+		if(pes.getPesId() != null) {
 			Context c = Context.getInstance();
 			c.setUsuarioAtual(pes);
 			
@@ -50,6 +50,6 @@ public class LoginController implements Initializable {
 			Stage stageMain = new Stage();
 			stageMain.setScene(scene);
 			stageMain.show();	
-//		}
+		}
 	}
 }

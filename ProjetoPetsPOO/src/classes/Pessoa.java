@@ -13,12 +13,13 @@ public class Pessoa {
 	private String pes_email;
 	private String pes_numero;
 	private String pes_senha;
+	private Integer pes_tipo;
 
 	public Integer getPesId() {
 		return pes_id;
 	}	
-	public void setPesId(Integer verId) {
-		this.pes_id = verId;
+	public void setPesId(Integer pes_id) {
+		this.pes_id = pes_id;
 	}
 	
 	public ObservableValue<String> getPesNome() {
@@ -67,5 +68,11 @@ public class Pessoa {
 	}
 	public void setPesSenha(String pes_senha) {
 		this.pes_senha = pes_senha;
+	}
+	public Integer getPesTipo() {
+		return pes_tipo;
+	}	
+	public void setPesTipo(Integer pes_tipo) {
+		this.pes_tipo = pes_tipo;
 	}
 }

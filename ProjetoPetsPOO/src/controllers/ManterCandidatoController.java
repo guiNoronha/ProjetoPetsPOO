@@ -41,6 +41,7 @@ public class ManterCandidatoController implements Initializable {
 		candidatoAuxiliar.setPesCpf(CadPessoaTxtFieldCpf.getText());
 		candidatoAuxiliar.setPesTelefone(CadPessoaTxtFieldTelefone.getText());
 		candidatoAuxiliar.setPesCep(CadPessoaTxtFieldCep.getText());
+		candidatoAuxiliar.setPesTipo(3);
 		candidatoAuxiliar.setPesNumero(CadPessoaTxtFieldNumero.getText());
 		
 		if(candidatoAuxiliar.getPesId() != null) {	

@@ -18,7 +18,7 @@ public class PessoaDAO {
   }
 
   public Pessoa inserir(Pessoa p) {
-    String sql = "INSERT INTO pessoa (pes_nome, pes_cep, pes_telefone, pes_cpf, pes_numero) VALUES (?, ?, ?, ?, ?);";
+    String sql = "INSERT INTO pessoa (pes_nome, pes_cep, pes_telefone, pes_cpf, pes_numero, pes_tipo) VALUES (?, ?, ?, ?, ?, ?);";
     try {
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -27,6 +27,7 @@ public class PessoaDAO {
       stmt.setString(3, p.getPesTelefone().getValue());
       stmt.setString(4, p.getPesCpf().getValue());
       stmt.setString(5, p.getPesNumero());
+      stmt.setInt(6, p.getPesTipo());
 
       stmt.execute();
 
@@ -163,6 +164,7 @@ public class PessoaDAO {
 	        pessoa.setPesTelefone(rs.getString("pes_telefone"));
 	        pessoa.setPesCpf(rs.getString("pes_cpf"));
 	        pessoa.setPesNumero(rs.getString("pes_numero"));
+	        pessoa.setPesTipo(rs.getInt("pes_tipo"));
 	      }
 
 	      rs.close();

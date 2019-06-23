@@ -49,7 +49,7 @@ public class ManterColaboradorController implements Initializable {
 		colaboradorAuxiliar.setPesCep(CadColaboradorTxtFieldCep.getText());
 		colaboradorAuxiliar.setPesNumero(CadColaboradorTxtFieldNumero.getText());
 		colaboradorAuxiliar.setColFuncao(CadColaboradorTxtFieldOcupacao.getText());
-		colaboradorAuxiliar.setColNascimento(CadColaboradorTxtFieldNascimento.getText());
+		colaboradorAuxiliar.setPesTipo(2);
 		
 		if(colaboradorAuxiliar.getPesId() != null) {	
 			cDAO.alterar(colaboradorAuxiliar);
@@ -79,7 +79,6 @@ public class ManterColaboradorController implements Initializable {
 		CadColaboradorTxtFieldCep.textProperty().setValue(c.getPesCep());
 		CadColaboradorTxtFieldNumero.textProperty().setValue(c.getPesNumero());
 		CadColaboradorTxtFieldOcupacao.textProperty().setValue(c.getColFuncao().getValue());
-		CadColaboradorTxtFieldNascimento.textProperty().setValue(c.getColNascimento().toString());
 		
 		
 	}

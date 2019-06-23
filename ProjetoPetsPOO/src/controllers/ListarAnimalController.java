@@ -29,11 +29,10 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ListarAnimalController implements Initializable{
-	
-	@FXML
-	public TextField CadAnimalTxtFieldNome;
 	@FXML
     public Button MainBtnCadastrarAnimais;
+	@FXML
+    public Button MainBtnExcluirAnimais;
     
 	@FXML
     private TableView<Animal> MainTabelaAnimais = new TableView<Animal>();
@@ -50,9 +49,10 @@ public class ListarAnimalController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	Context c = Context.getInstance();
     	Pessoa usuario = c.getUsuarioAtual();
-//    	System.out.println(usuario.getPesNome().getValue());
-    	
-//		MainBtnCadastrarAnimais.setDisable(true);
+    	if(usuario.getPesTipo() == 3) {
+    		MainBtnCadastrarAnimais.setDisable(true);
+    		MainBtnExcluirAnimais.setDisable(true);
+    	}
 		
 		MainColunaAnimaisNome.setCellValueFactory(new Callback<CellDataFeatures<Animal, String>, 
                 ObservableValue<String>>() {

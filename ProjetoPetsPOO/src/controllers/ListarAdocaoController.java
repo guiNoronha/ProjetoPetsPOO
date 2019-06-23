@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableRow;
@@ -28,9 +29,10 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ListarAdocaoController implements Initializable{
-	
 	@FXML
-	public TextField CadAdocaoTxtFieldNome;
+    public Button MainBtnCadastrarAdocoes;
+	@FXML
+    public Button MainBtnExcluirAdocoes;
 	
 	@FXML
     private TableView<Adocao> MainTabelaAdocoes = new TableView<Adocao>();
@@ -41,6 +43,12 @@ public class ListarAdocaoController implements Initializable{
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	Context c = Context.getInstance();
+    	Pessoa usuario = c.getUsuarioAtual();
+    	if(usuario.getPesTipo() != 2) {
+    		MainBtnCadastrarAdocoes.setDisable(true);
+    		MainBtnExcluirAdocoes.setDisable(true);
+    	}
     	
     	MainColunaAdocoesAnimal.setCellValueFactory(new Callback<CellDataFeatures<Adocao, String>, 
                 ObservableValue<String>>() {

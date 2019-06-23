@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableRow;
@@ -28,9 +29,10 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class ListarCandidatoController implements Initializable{
-	
-//	@FXML
-	public TextField CadCandidatoTxtFieldNome;
+	@FXML
+    public Button MainBtnCadastrarCandidatos;
+	@FXML
+    public Button MainBtnExcluirCandidatos;
 	
 	@FXML
     private TableView<Candidato> MainTabelaCandidatos = new TableView<Candidato>();
@@ -43,6 +45,12 @@ public class ListarCandidatoController implements Initializable{
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	Context c = Context.getInstance();
+    	Pessoa usuario = c.getUsuarioAtual();
+    	if(usuario.getPesTipo() != 1) {
+    		MainBtnCadastrarCandidatos.setDisable(true);
+    		MainBtnExcluirCandidatos.setDisable(true);
+    	}
     	
 		MainColunaCandidatosNome.setCellValueFactory(new Callback<CellDataFeatures<Candidato, String>, 
                 ObservableValue<String>>() {
