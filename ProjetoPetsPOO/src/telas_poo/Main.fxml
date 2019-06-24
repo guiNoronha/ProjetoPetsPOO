@@ -37,7 +37,7 @@
             </Tab>
             
             <Tab fx:id="MainAbaEvento" text="Evento">
-               
+               <fx:include fx:id="AbaRelatorios" source="AbaEvento.fxml" />
             </Tab>
             
             <Tab fx:id="MainAbaRelatorio" text="Relatórios">

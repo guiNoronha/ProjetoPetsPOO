@@ -33,4 +33,9 @@ public class Colaborador extends Pessoa{
 	public void setColNascimento(String col_nascimento) {
 		this.col_nascimento.set(col_nascimento);
 	}
+	@Override
+	public String toString() {
+		return this.getPesNome().getValue();
+		
+	}
 }

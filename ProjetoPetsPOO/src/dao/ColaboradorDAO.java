@@ -117,7 +117,7 @@ public class ColaboradorDAO {
 
   public Colaborador buscar(Integer col_id) throws Exception {
     try {
-      String sql = "SELECT * FROM colaborador where col_id = ?";
+      String sql = "SELECT * FROM colaborador join pessoa on colaborador.pes_id = pessoa.pes_id where col_id = ?";
       PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
       stmt.setInt(1, col_id);

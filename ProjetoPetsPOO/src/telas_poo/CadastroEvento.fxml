@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="CadEventoAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManterEventoController">
+   <children>
+      <Label fx:id="CadEventoLblNome" layoutX="16.0" layoutY="38.0" text="Nome" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="35.0" />
+      <TextField fx:id="CadEventoTxtFieldNome" layoutX="25.0" layoutY="51.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="51.0" />
+      <Label fx:id="CadEventoLblData" layoutX="16.0" layoutY="93.0" text="Data" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="CadEventoTxtFieldData" layoutX="25.0" layoutY="106.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="106.0" />
+      <Label fx:id="CadEventoLblLocal" layoutX="251.0" layoutY="90.0" text="Local" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="90.0" />
+      <TextField fx:id="CadEventoTxtFieldLocal" layoutX="248.0" layoutY="106.0" prefHeight="25.0" prefWidth="277.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="106.0" />
+      <Label fx:id="CadEventoLblDescricao" layoutX="27.0" layoutY="142.0" text="Descriçao" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="142.0" />
+      <Label fx:id="CadEventoLblResponsvel" layoutX="249.0" layoutY="142.0" text="Responsavel" AnchorPane.rightAnchor="218.0" />
+      <Button fx:id="CadEventoBtnCancelar" layoutX="346.0" layoutY="237.0" mnemonicParsing="false" onAction="#fecharTelaCadastroEvento" prefHeight="26.0" prefWidth="82.0" text="Cancelar" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="122.0" />
+      <Button fx:id="CadEventoBtnSalvar" layoutX="450.0" layoutY="237.0" mnemonicParsing="false" onAction="#manterEvento" prefWidth="75.0" text="Salvar" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="25.0" />
+      <TextArea fx:id="CadEventoTxtFieldDescricao" layoutX="25.0" layoutY="159.0" prefHeight="104.0" prefWidth="200.0" />
+      <ComboBox fx:id="CadEventoTxtFieldResponsavel" layoutX="248.0" layoutY="159.0" prefHeight="26.0" prefWidth="277.0" promptText="Selecione" />
+   </children>
+</AnchorPane>
