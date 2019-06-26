@@ -5,8 +5,8 @@
 
 <AnchorPane fx:id="MainAnchorRelatorio" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListarRelatorioController">
    <children>
-      <Button fx:id="buttonRelAnimaisAdotados" layoutX="58.0" layoutY="27.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="198.0" text="Tipos Animais Adotados" textAlignment="CENTER" />
-      <Button fx:id="buttonItensDoados" layoutX="498.0" layoutY="27.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="198.0" text="Itens Doados" />
-      <Button fx:id="buttonRelFluxoCaixa" layoutX="278.0" layoutY="27.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="198.0" text="Fluxo de Caixa" />
+      <Button fx:id="buttonRelAnimaisAdotados" layoutX="58.0" layoutY="27.0" mnemonicParsing="false" onAction="#relatorioAnimaisAdotados" prefHeight="150.0" prefWidth="198.0" text="Tipos Animais Adotados" textAlignment="CENTER" />
+      <Button fx:id="buttonItensDoados" layoutX="498.0" layoutY="27.0" mnemonicParsing="false" onAction="#relatorioItensDoados" prefHeight="150.0" prefWidth="198.0" text="Itens Doados" />
+      <Button fx:id="buttonRelFluxoCaixa" layoutX="278.0" layoutY="27.0" mnemonicParsing="false" onAction="#relatorioFluxoCaixa" prefHeight="150.0" prefWidth="198.0" text="Fluxo de Caixa" />
    </children>
 </AnchorPane>
