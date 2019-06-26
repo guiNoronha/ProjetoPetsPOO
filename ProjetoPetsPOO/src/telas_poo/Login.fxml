@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="LoginAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <Label fx:id="LoginLblWelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="23.0" prefHeight="16.0" prefWidth="225.0" text="Bem vindo ao Petz Manager" textAlignment="CENTER" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="23.0" />
+      <Label fx:id="LoginLblWelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="23.0" prefHeight="16.0" prefWidth="225.0" text="Bem vindo ao Pets Manage" textAlignment="CENTER" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="23.0" />
       <Label fx:id="LoginLblUsuario" layoutX="50.0" layoutY="59.0" text="Login (CPF):" AnchorPane.bottomAnchor="174.0" AnchorPane.leftAnchor="50.0" />
       <TextField fx:id="LoginTxtFieldUsuario" layoutX="50.0" layoutY="79.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       <Label fx:id="LoginLblSenha" layoutX="50.0" layoutY="119.0" text="Senha:" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="50.0" />
